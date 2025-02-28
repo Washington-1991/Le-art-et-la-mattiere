@@ -1,0 +1,38 @@
+// SCSS correspondiente al header
+
+.header {
+  background-color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .header-card-left {
+
+    img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+    }
+  }
+
+  .header-card-right {
+    h1 {
+      color: #9a5f45;
+      font-size: 48px;
+      font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+      font-weight: 600;
+
+    }
+
+    h2 {
+      color: #e8997c;
+      font-size: 24px;
+      font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+      font-weight: 600;
+    }
+
+  }
+
+
+}

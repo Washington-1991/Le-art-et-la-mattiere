@@ -1,0 +1,457 @@
+// SCSS correspondiente a business cards
+.business-card-container {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  background-color: #f3d2c3;
+
+  .business-cards {
+    margin: 8px 80px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .business-card-wp {
+      height: 200px;
+      width: 358px;
+      border: 1px solid #9a5f45;
+      margin-right: auto;
+
+      h2 {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #9a5f45;
+      }
+
+      .button-wp {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          height: 50%;
+          width: 50%;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          button {
+            padding: 8px 16px;
+            background-color: #e6b7a3;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+              background-color: #9a5f45;
+              color: #f3d2c3;
+            }
+          }
+        }
+      }
+    }
+
+    .business-card-livraison {
+      height: 200px;
+      width: 358px;
+      border: 1px solid #9a5f45;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        color: #9a5f45;
+        margin: 8px 0;
+        text-align: center;
+      }
+    }
+
+    .business-card-social-media {
+      height: 200px;
+      width: 358px;
+      border: 1px solid #9a5f45;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #9a5f45;
+        font-size: 16px;
+        font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+        font-weight: 400;
+      }
+
+      .business-card-social-media-buttons {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          height: 50%;
+          width: 50%;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #9a5f45;
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .business-card-container {
+
+    .business-cards {
+     padding: 8px;
+
+      .business-card-wp {
+
+        h2 {
+
+        }
+
+        .button-wp {
+
+          a {
+            width: 100%;
+            button {
+
+
+              &:hover {
+
+              }
+            }
+          }
+        }
+      }
+
+      .business-card-livraison {
+        height: 200px;
+        width: 358px;
+        border: 1px solid #9a5f45;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+
+        p {
+          color: #9a5f45;
+          margin: 8px 0;
+          text-align: center;
+        }
+      }
+
+      .business-card-social-media {
+        height: 200px;
+        width: 358px;
+        border: 1px solid #9a5f45;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          height: 50%;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: #9a5f45;
+          font-size: 4vh;
+          font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+          font-weight: 400;
+          margin: 8px 0;
+        }
+
+        .business-card-social-media-buttons {
+          height: 50%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a {
+            height: 50%;
+            width: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6vh;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .business-card-container {
+
+    .business-cards {
+     padding: 8px;
+
+      .business-card-wp {
+
+        h2 {
+
+        }
+
+        .button-wp {
+
+          a {
+            width: 100%;
+            button {
+
+
+              &:hover {
+
+              }
+            }
+          }
+        }
+      }
+
+      .business-card-livraison {
+        height: 200px;
+        width: 358px;
+        border: 1px solid #9a5f45;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+
+        p {
+          color: #9a5f45;
+          margin: 8px 0;
+          text-align: center;
+        }
+      }
+
+      .business-card-social-media {
+        height: 200px;
+        width: 358px;
+        border: 1px solid #9a5f45;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          height: 50%;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: #9a5f45;
+          font-size: 4vh;
+          font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+          font-weight: 400;
+          margin: 8px 0;
+        }
+
+        .business-card-social-media-buttons {
+          height: 50%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a {
+            height: 50%;
+            width: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6vh;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .business-card-container {
+    height: auto;
+
+    .business-cards {
+      flex-direction: column;
+
+      .business-card-wp {
+        margin: 8px 0 4px 0;
+        h2 {
+
+        }
+
+        .button-wp {
+
+          a {
+
+            button {
+
+              &:hover {
+
+              }
+            }
+          }
+        }
+      }
+
+      .business-card-livraison {
+        margin: 4px 0 4px 0;
+
+        p {
+
+        }
+      }
+
+      .business-card-social-media {
+        margin: 4px 0 8px 0;
+
+        h2 {
+          height: 50%;
+          width: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: #9a5f45;
+          font-size: 6vh;
+          font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+          font-weight: 400;
+        }
+
+        .business-card-social-media-buttons {
+          height: 50%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a {
+            height: 50%;
+            width: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 8vh;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+
+  .business-card-container {
+    height: auto;
+
+    .business-cards {
+      flex-direction: column;
+
+      .business-card-wp {
+        margin: 8px 0 4px 0;
+        h2 {
+
+        }
+
+        .button-wp {
+
+          a {
+
+            button {
+
+              &:hover {
+
+              }
+            }
+          }
+        }
+      }
+
+      .business-card-livraison {
+        margin: 4px 0 4px 0;
+
+        p {
+
+        }
+      }
+
+      .business-card-social-media {
+        margin: 4px 0 8px 0;
+
+        h2 {
+          height: 50%;
+          width: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: #9a5f45;
+          font-size: 6vh;
+          font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+          font-weight: 400;
+        }
+
+        .business-card-social-media-buttons {
+          height: 50%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a {
+            height: 50%;
+            width: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 8vh;
+          }
+        }
+      }
+    }
+  }
+
+}

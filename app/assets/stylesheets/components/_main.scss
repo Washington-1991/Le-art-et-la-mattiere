@@ -1,0 +1,323 @@
+// SCSS correspondiente a main
+
+.main {
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+
+  .main-card-buttons {
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3d2c3;
+
+    a {
+      margin: 0 8px;
+      color: #e8997c;
+      font-family: "Dancing Script", serif;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 4vw;
+    }
+
+  }
+
+  .main-card-container {
+    height: 80vh;
+
+    display: flex;
+    margin: 8px 0;
+
+    .main-card-left {
+      width: 50%;
+      margin: 0 8px 0 0;
+      overflow: hidden;
+
+      a {
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+      }
+
+      a:hover {
+        img {
+          transform: scale(1.3);
+          transition: transform 0.8s ease;
+        }
+      }
+
+    }
+
+    .main-card-right {
+      width: 50%;
+      overflow: hidden;
+
+      .main-card-right-top {
+        height: 60%;
+        width: 100%;
+        margin: 0 0 8px 0;
+        overflow: hidden;
+
+        a {
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+        }
+
+        a:hover {
+          img {
+            transform: scale(1.3);
+            transition: transform 0.8s ease;
+          }
+        }
+
+
+      }
+
+      .main-card-right-bottom {
+
+        height: 40%;
+        width: 100%;
+        overflow: hidden;
+
+        a {
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+        }
+
+        a:hover {
+          img {
+            transform: scale(1.3);
+            transition: transform 0.8s ease;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+
+}
+
+@media screen and (min-width: 1025px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+  .main {
+
+    .main-card-buttons {
+
+      a {
+        font-size: 3vw;
+      }
+
+    }
+
+    .main-card-container {
+
+      .main-card-left {
+
+        a {
+
+          img {
+
+          }
+
+        }
+
+        a:hover {
+          img {
+
+          }
+        }
+
+      }
+
+      .main-card-right {
+
+        .main-card-right-top {
+
+          a {
+
+            img {
+
+            }
+
+          }
+
+          a:hover {
+            img {
+
+            }
+          }
+
+
+        }
+
+        .main-card-right-bottom {
+
+          a {
+
+            img {
+
+            }
+
+          }
+
+          a:hover {
+            img {
+
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0 8px;
+
+    .main-card-buttons {
+
+      a {
+        font-size: 4vw;
+      }
+
+    }
+
+    .main-card-container {
+
+      .main-card-left {
+
+        a {
+
+        }
+
+        a:hover {
+
+        }
+
+      }
+
+      .main-card-right {
+
+        .main-card-right-top {
+
+          a {
+
+          }
+
+          a:hover {
+
+          }
+
+
+        }
+
+        .main-card-right-bottom {
+
+          a {
+
+          }
+
+          a:hover {
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .main {
+
+    .main-card-buttons {
+
+      a {
+      font-size: 4vw;
+      }
+
+    }
+
+    .main-card-container {
+
+      .main-card-left {
+
+        a {
+
+        }
+
+        a:hover {
+
+        }
+
+      }
+
+      .main-card-right {
+
+        .main-card-right-top {
+
+          a {
+
+          }
+
+          a:hover {
+
+          }
+
+
+        }
+
+        .main-card-right-bottom {
+
+          a {
+
+          }
+
+          a:hover {
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+  }
+
+}

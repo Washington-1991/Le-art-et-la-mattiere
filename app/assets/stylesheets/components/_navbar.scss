@@ -1,12 +1,64 @@
-.navbar-lewagon {
+// SCSS correspondiente a la Navbar
+
+.navbar {
+  height: 9vh;
+  width: 100%;
+  background-color: #9a5f45;
+  color: #e6b7a3;
+
+  display: flex;
   justify-content: space-between;
-  background: white;
+
+  .navbar-left-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      font-size: 16px;
+      margin: 0 8px;
+    }
+
+    a {
+      font-size: 24px;
+      font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+      font-weight: 600;
+      color: #e8997c;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+  }
+
+  .navbar-right-card {
+    display: flex;
+    margin: 0 8px;
+
+    a {
+      margin: 0 8px;
+      color: #e8997c;
+      font-family: "Amatic SC", Sans-serif;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+@media screen and (min-width: 1025px) {
+
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
 }

@@ -1,5 +1,9 @@
 <%# HTML correspondiente al log in(inicio de sesion) %>
 <div class="login-container">
+
+    <%= render "shared/navbar" %>
+
+
   <h2>Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

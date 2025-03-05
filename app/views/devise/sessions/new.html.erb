@@ -13,9 +13,7 @@
               <h2>Se conecter</h2>
       </span>
 
-    </section>
-
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
                   required: false,
@@ -31,6 +29,10 @@
         <%= f.button :submit, "Log in" %>
       </div>
     <% end %>
+
+    </section>
+
+
 
   </div>
 

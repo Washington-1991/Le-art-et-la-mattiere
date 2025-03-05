@@ -5,18 +5,23 @@
 
   .login-conexion-container {
 
+    .login-conexion {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    h2 {
-      color: #9a5f45;
-      font-size: 48px;
-      font-family: "Dancing Script", serif; // Aplicando la nueva fuente
-      font-weight: 600;
+      h2 {
+        color: #9a5f45;
+        font-size: 48px;
+        font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+        font-weight: 600;
+      }
     }
+
+
+
 
 
 

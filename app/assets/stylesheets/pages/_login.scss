@@ -6,14 +6,18 @@
   .login-conexion-container {
 
     .login-conexion-title {
+      border: 1px solid black;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+
 
       h2 {
         color: #9a5f45;
         font-size: 48px;
         font-family: "Dancing Script", serif; // Aplicando la nueva fuente
         font-weight: 600;
-        width: 100%;
-        border: 1px solid black;
       }
 
     }

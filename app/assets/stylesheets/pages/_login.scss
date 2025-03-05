@@ -1,5 +1,7 @@
 // SCSS correspondiente a login
 
+// SCSS correspondiente a login
+
 .login-container {
   background: white;
 
@@ -23,24 +25,52 @@
         font-weight: 600;
       }
 
-      .simple_form {
+      // Estilos para los campos de entrada
+      .form-inputs {
         width: 100%;
 
-        input {
+        input[type="email"],
+        input[type="password"] {
+          color: #9a5f45; // Color del texto
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 16px;
+          border: 1px solid #9a5f45;
+          border-radius: 4px;
+          background-color: white;
+
+          &:focus {
+            outline: none;
+            border-color: #9a5f45;
+            box-shadow: 0 0 5px rgba(154, 95, 69, 0.5);
+          }
+        }
+
+        // Estilo para el checkbox de "remember me"
+        input[type="checkbox"] {
+          margin-right: 8px;
+        }
+
+        label {
           color: #9a5f45;
         }
       }
+
+      // Estilo para el botón de submit
+      .form-actions {
+        input[type="submit"] {
+          background-color: #9a5f45;
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken(#9a5f45, 10%);
+          }
+        }
+      }
     }
-
-
-
-
-
-
   }
-
-
-
-
-
 }

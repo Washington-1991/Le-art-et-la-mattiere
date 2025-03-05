@@ -1,7 +1,6 @@
 // SCSS correspondiente a login
 
 .login-container {
-  border: 1px solid black;
   background: white;
 
   h2 {
@@ -10,6 +9,7 @@
     font-family: "Dancing Script", serif; // Aplicando la nueva fuente
     font-weight: 600;
     width: 100%;
+    align-items: center;
     border: 1px solid black;
   }
 

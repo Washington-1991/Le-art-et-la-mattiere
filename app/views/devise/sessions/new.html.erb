@@ -14,23 +14,23 @@
       </span>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email", class: 'form-control' } %>
-    <%= f.input :password,
-                required: true,
-                input_html: { autocomplete: "current-password", class: 'form-control' } %>
-    <%= f.input :remember_me, as: :boolean, input_html: { class: 'form-check-input' } if devise_mapping.rememberable? %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", class: 'form-control' } %>
+          <%= f.input :password,
+                      required: true,
+                      input_html: { autocomplete: "current-password", class: 'form-control' } %>
+          <%= f.input :remember_me, as: :boolean, input_html: { class: 'form-check-input' } if devise_mapping.rememberable? %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
-  </div>
-<% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
 
-<%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
 
     </section>
 

@@ -29,13 +29,14 @@
       .form-inputs {
         width: 100%;
         border: 1px solid black;
+        padding: 8px; // Añadir padding para que los inputs no estén pegados al borde
 
         input[type="email"],
         input[type="password"] {
           color: #9a5f45; // Color del texto
-          width: 100%;
+          width: calc(100% - 16px); // Restar el margen total (8px a cada lado)
           padding: 8px;
-          margin-bottom: 16px;
+          margin: 8px 0; // Margen de 8px arriba y abajo
           border: 1px solid #9a5f45;
           border-radius: 4px;
           background-color: white;

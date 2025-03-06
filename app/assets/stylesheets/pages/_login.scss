@@ -6,7 +6,6 @@
 
   .sesion-conexion-container {
     display: flex;
-    padding: 8px;
 
     .login-conexion {
       width: 50%;
@@ -17,6 +16,7 @@
       padding: 8px;
       background-color: #f3d2c3;
       border: 1px solid #9a5f45;
+      margin: 0 0 4px 0;
 
       h2 {
         color: #9a5f45;
@@ -80,6 +80,7 @@
       padding: 8px;
       background-color: #f3d2c3;
       border: 1px solid #9a5f45;
+      margin: 0 0 0 4px;
 
       h2 {
       color: #9a5f45;

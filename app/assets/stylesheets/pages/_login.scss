@@ -26,6 +26,23 @@
       .form-inputs {
         border: 1px solid black;
         width: 100%;
+
+        input[type="email"],
+        input[type="password"] {
+          color: #9a5f45; // Color del texto
+          width: calc(100% - 16px); // Restar el margen total (8px a cada lado)
+          padding: 8px;
+          margin: 8px 0; // Margen de 8px arriba y abajo
+          border: 1px solid #9a5f45;
+          border-radius: 4px;
+          background-color: white;
+
+          &:focus {
+            outline: none;
+            border-color: #9a5f45;
+            box-shadow: 0 0 5px rgba(154, 95, 69, 0.5);
+          }
+        }
       }
 
     }

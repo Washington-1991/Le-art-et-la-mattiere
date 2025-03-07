@@ -18,11 +18,19 @@
       border: 1px solid #9a5f45;
       margin: 0 0 4px 0;
 
-      h2 {
-        color: #9a5f45;
-        font-size: 48px;
-        font-family: "Dancing Script", serif; // Aplicando la nueva fuente
-        font-weight: 600;
+      .login-conexion-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        h2 {
+          color: #9a5f45;
+          font-size: 48px;
+          font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+          font-weight: 600;
+        }
+
       }
 
       .form-horizontal {
@@ -83,10 +91,10 @@
       margin: 0 0 0 4px;
 
       h2 {
-      color: #9a5f45;
-      font-size: 48px;
-      font-family: "Dancing Script", serif;
-      font-weight: 600;
+        color: #9a5f45;
+        font-size: 48px;
+        font-family: "Dancing Script", serif;
+        font-weight: 600;
       }
 
       .form-horizontal {

@@ -112,21 +112,21 @@
         max-width: 400px;
         margin: 0 auto;
 
-      .form-inputs {
-        margin-bottom: 16px;
+        .form-inputs {
+          margin-bottom: 16px;
 
-        .form-control {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 8px;
-        border: 1px solid #9a5f45;
-        border-radius: 4px;
-        }
+          .form-control {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 8px;
+          border: 1px solid #9a5f45;
+          border-radius: 4px;
+          }
 
-        .form-check-input {
-        margin-right: 8px;
+          .form-check-input {
+          margin-right: 8px;
+          }
         }
-      }
 
       .form-actions {
         display: flex;

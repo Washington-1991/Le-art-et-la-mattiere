@@ -105,10 +105,15 @@
 
       }
 
+      .simple_form new_user{
+
+      }
+
       .form-horizontal {
         width: 100%;
         max-width: 400px;
         margin: 0 auto;
+        border: 1px solid black;
 
         .form-inputs {
           margin-bottom: 16px;

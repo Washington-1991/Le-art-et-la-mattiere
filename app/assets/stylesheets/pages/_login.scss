@@ -125,6 +125,27 @@
             margin-right: 8px;
           }
         }
+
+        .form-actions {
+          display: flex;
+          justify-content: center;
+          margin: 0 0 16px 0;
+
+          .btn-primary {
+            background-color: #9a5f45;
+            border-color: #9a5f45;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+              background-color: #7e4a36;
+              border-color: #7e4a36;
+            }
+          }
+        }
       }
 
 

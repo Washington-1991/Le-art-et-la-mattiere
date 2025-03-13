@@ -166,7 +166,34 @@
 }
 
 @media screen and (max-width: 768px) {
+  .login-container {
+    .sesion-conexion-container {
+      flex-direction: column;
 
+      .login-conexion,
+      .signup-conexion {
+        width: 100%;
+        height: auto;
+        margin: 0 0 8px 0;
+
+        .login-conexion-title,
+        .signup-conexion-title {
+          h2 {
+            font-size: 36px; // Reducir el tamaño de la fuente para pantallas pequeñas
+          }
+        }
+
+        .form-horizontal,
+        form {
+          max-width: 100%; // Asegurar que el formulario ocupe todo el ancho disponible
+        }
+      }
+
+      .signup-conexion {
+        margin: 0; // Eliminar el margen izquierdo en pantallas pequeñas
+      }
+    }
+  }
 }
 
 

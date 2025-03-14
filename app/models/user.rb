@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-  has_secure_password
+  # Elimina has_secure_password
+  # has_secure_password
+
+  # Devise para manejar la autenticación
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   # Constantes para la seguridad
   VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP

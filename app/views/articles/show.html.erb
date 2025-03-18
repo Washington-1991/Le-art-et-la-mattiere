@@ -1,0 +1,11 @@
+<h1><%= @article.name %></h1>
+
+<p><strong>Description :</strong> <%= @article.description %></p>
+<p><strong>Prix :</strong> <%= @article.price %></p>
+<p><strong>Stock :</strong> <%= @article.stock %></p>
+<p><strong>Catégorie :</strong> <%= @article.category %></p>
+
+<%= image_tag @article.image_url if @article.image_url.present? %>
+
+<%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %> |
+<%= link_to 'Retour à la liste', articles_path, class: 'btn btn-secondary' %>

@@ -1,16 +1,16 @@
-<h1>Lista de Artículos</h1>
+<h1>Liste des Articles</h1>
 
-<%= link_to 'Nuevo Artículo', new_article_path, class: 'btn btn-primary' %>
+<%= link_to 'Nouvel Article', new_article_path, class: 'btn btn-primary' %>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Precio</th>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Prix</th>
       <th>Stock</th>
-      <th>Categoría</th>
-      <th>Acciones</th>
+      <th>Catégorie</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -22,9 +22,9 @@
         <td><%= article.stock %></td>
         <td><%= article.category %></td>
         <td>
-          <%= link_to 'Ver', article_path(article), class: 'btn btn-info' %>
-          <%= link_to 'Editar', edit_article_path(article), class: 'btn btn-warning' %>
-          <%= link_to 'Eliminar', article_path(article), method: :delete, data: { confirm: '¿Estás seguro de eliminar este artículo?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
+          <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
+          <%= link_to 'Supprimer', article_path(article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>

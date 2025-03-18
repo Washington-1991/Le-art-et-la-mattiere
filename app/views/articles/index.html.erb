@@ -1,2 +1,32 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>Lista de Artículos</h1>
+
+<%= link_to 'Nuevo Artículo', new_article_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Categoría</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.name %></td>
+        <td><%= article.description %></td>
+        <td><%= article.price %></td>
+        <td><%= article.stock %></td>
+        <td><%= article.category %></td>
+        <td>
+          <%= link_to 'Ver', article_path(article), class: 'btn btn-info' %>
+          <%= link_to 'Editar', edit_article_path(article), class: 'btn btn-warning' %>
+          <%= link_to 'Eliminar', article_path(article), method: :delete, data: { confirm: '¿Estás seguro de eliminar este artículo?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

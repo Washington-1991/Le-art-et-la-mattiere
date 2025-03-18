@@ -40,7 +40,8 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.find_by(id: params[:id])
+    redirect_to articles_path, alert: "Artículo no encontrado" if @article.nil?
   end
 
   def article_params

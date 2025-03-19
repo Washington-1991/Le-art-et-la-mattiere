@@ -22,7 +22,6 @@
     <td>
       <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
       <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
-      <%= link_to 'Supprimer', article_path(article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
     </td>
   </tr>
 <% end %>

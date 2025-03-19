@@ -15,18 +15,17 @@
   </thead>
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.name %></td>
-        <td><%= article.description %></td>
-        <td><%= article.price %></td>
-        <td><%= article.stock %></td>
-        <td><%= article.category %></td>
-        <td>
-          <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
-          <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
-          <%= link_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+  <tr>
+    <td><%= article.name %></td>
+    <td><%= article.description %></td>
+    <td><%= article.price %></td>
+    <td>
+      <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
+      <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
+      <%= link_to 'Supprimer', article_path(article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
+    </td>
+  </tr>
+<% end %>
+
   </tbody>
 </table>

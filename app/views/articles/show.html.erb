@@ -11,4 +11,4 @@
 
 <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %> |
 <%= link_to 'Retour à la liste', articles_path, class: 'btn btn-secondary' %>
-<%= link_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
+<%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>

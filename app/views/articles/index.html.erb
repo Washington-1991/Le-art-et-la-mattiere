@@ -1,33 +1,44 @@
-<h1>Liste des Articles</h1>
+<%# HTML correspondiente al index de articulos %>
 
-<%= render "shared/navbar" %>
+<div class="articles-index-container">
 
-<%= link_to 'Nouvel Article', new_article_path, class: 'btn btn-primary' %>
+  <%= render "shared/navbar" %>
 
-<table class="table">
-  <thead>
+  <h1>Liste des Articles</h1>
+
+  <%= link_to 'Nouvel Article', new_article_path, class: 'btn btn-primary' %>
+
+  <table class="table">
+
+    <thead>
+
+      <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Catégorie</th>
+        <th>Actions</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+      <% @articles.each do |article| %>
     <tr>
-      <th>Nom</th>
-      <th>Description</th>
-      <th>Prix</th>
-      <th>Stock</th>
-      <th>Catégorie</th>
-      <th>Actions</th>
+      <%= image_tag @article.image_url if @article.image_url.present? %>
+      <td><%= article.name %></td>
+      <td><%= article.description %></td>
+      <td><%= article.price %></td>
+      <td>
+        <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
+        <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
+      </td>
     </tr>
-  </thead>
-  <tbody>
-    <% @articles.each do |article| %>
-  <tr>
-    <%= image_tag @article.image_url if @article.image_url.present? %>
-    <td><%= article.name %></td>
-    <td><%= article.description %></td>
-    <td><%= article.price %></td>
-    <td>
-      <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
-      <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
-    </td>
-  </tr>
-<% end %>
+    <% end %>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+
+</div>

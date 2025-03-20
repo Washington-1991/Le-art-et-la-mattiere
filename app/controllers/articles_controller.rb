@@ -33,11 +33,15 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
-    respond_to do |format|
-      format.html { redirect_to articles_path, notice: 'Article supprimé avec succès.' }
-      format.turbo_stream
+    @article = Article.find_by(id: params[:id])
+    if @article
+      @article.destroy
+      respond_to do |format|
+        format.html { redirect_to articles_path, notice: 'Article supprimé avec succès.' }
+        format.turbo_stream
+      end
+    else
+      redirect_to articles_path, alert: "Article non trouvé"
     end
   end
 

@@ -16,6 +16,7 @@
   <tbody>
     <% @articles.each do |article| %>
   <tr>
+    <%= image_tag @article.image_url if @article.image_url.present? %>
     <td><%= article.name %></td>
     <td><%= article.description %></td>
     <td><%= article.price %></td>

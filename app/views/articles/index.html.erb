@@ -31,18 +31,18 @@
     </thead>
 
     <tbody>
-      <% @articles.each do |article| %>
-    <tr>
-      <%= image_tag @article.image_url if @article.image_url.present? %>
-      <td><%= article.name %></td>
-      <td><%= article.description %></td>
-      <td><%= article.price %></td>
-      <td>
-        <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
-        <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
-      </td>
-    </tr>
-    <% end %>
+      <% if @articles.present? %>
+        <% @articles.each do |article| %>
+          <tr>
+            <td><%= image_tag article.image_url if article.image_url.present? %></td>
+            <td><%= article.name %></td>
+            <td><%= article.description %></td>
+            <td><%= article.price %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <p>Pas des articles disponibles.</p>
+      <% end %>
 
     </tbody>
   </table>

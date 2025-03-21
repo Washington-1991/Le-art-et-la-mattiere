@@ -1,1 +1,192 @@
-// SCSS correspondiente a articles new
+.articles-index-container {
+  background-color: white;
+  border: 1px solid black;
+  padding: 8px;
+
+  .articles-index-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .articles-index-title-card-A {
+      color: #9a5f45;
+      font-size: 48px;
+      font-family: "Dancing Script", serif;
+      font-weight: 600;
+    }
+
+    .articles-index-title-card-B {
+      // Estilos para el título B
+    }
+  }
+
+  .articles-form-container {
+    margin-top: 20px;
+
+    .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+
+        &:focus {
+          border-color: #66afe9;
+          outline: none;
+          box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+        }
+      }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    .form-actions {
+      margin-top: 20px;
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:hover {
+          background-color: #0056b3;
+          border-color: #004085;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .articles-index-container {
+    padding: 16px;
+
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 56px;
+      }
+    }
+
+    .articles-form-container {
+      .form-group {
+        .form-control {
+          padding: 12px;
+        }
+      }
+
+      .form-actions {
+        .btn-primary {
+          padding: 12px 24px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .articles-index-container {
+    padding: 12px;
+
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 44px;
+      }
+    }
+
+    .articles-form-container {
+      .form-group {
+        .form-control {
+          padding: 10px;
+        }
+      }
+
+      .form-actions {
+        .btn-primary {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .articles-index-container {
+    padding: 8px;
+
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 36px;
+      }
+    }
+
+    .articles-form-container {
+      .form-group {
+        .form-control {
+          padding: 8px;
+        }
+      }
+
+      .form-actions {
+        .btn-primary {
+          padding: 8px 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .articles-index-container {
+    padding: 4px;
+
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 28px;
+      }
+    }
+
+    .articles-form-container {
+      .form-group {
+        .form-control {
+          padding: 6px;
+        }
+      }
+
+      .form-actions {
+        .btn-primary {
+          padding: 6px 12px;
+        }
+      }
+    }
+  }
+}

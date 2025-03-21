@@ -1,47 +1,65 @@
-<h1>Nouvel Article</h1>
+<%# HTML correspondiente al new de artículos %>
+<%= render "shared/navbar" %>
 
-<%= form_with(model: @article, local: true) do |form| %>
-  <% if @article.errors.any? %>
-    <div class="alert alert-danger">
-      <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="articles-index-container">
+
+  <%= render 'shared/header' %>
+
+  <div class="articles-index-title">
+    <div class="articles-index-title-card-A">
+      <h1>Nouvel Article</h1>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= form.label :name, "Nom" %>
-    <%= form.text_field :name, class: 'form-control' %>
+    <div class="articles-index-title-card-B">
+      <%= link_to 'Retour à la liste', articles_path, class: 'btn btn-secondary' %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :description, "Description" %>
-    <%= form.text_area :description, class: 'form-control' %>
+  <div class="articles-form-container">
+    <%= form_with(model: @article, local: true) do |form| %>
+      <% if @article.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% @article.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :name, "Nom" %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description, "Description" %>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :price, "Prix" %>
+        <%= form.number_field :price, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :stock, "Stock" %>
+        <%= form.number_field :stock, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :category, "Catégorie" %>
+        <%= form.text_field :category, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :image_url, "URL de l'image" %>
+        <%= form.text_field :image_url, class: 'form-control' %>
+      </div>
+
+      <div class="form-actions">
+        <%= form.submit 'Créer l\'article', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :price, "Prix" %>
-    <%= form.number_field :price, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :stock, "Stock" %>
-    <%= form.number_field :stock, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :category, "Catégorie" %>
-    <%= form.text_field :category, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :image_url, "URL de l'image" %>
-    <%= form.text_field :image_url, class: 'form-control' %>
-  </div>
-
-  <%= form.submit 'Créer l\'article', class: 'btn btn-primary' %>
-<% end %>
-
-<%= link_to 'Retour à la liste', articles_path, class: 'btn btn-secondary' %>
+</div>

@@ -1,5 +1,3 @@
-// SCSS correspondiente a articles_index
-
 .articles-index-container {
   background-color: white;
   border: 1px solid black;
@@ -17,36 +15,59 @@
       font-weight: 600;
     }
 
-    .articles-index-title-card-B{
-
+    .articles-index-title-card-B {
+      // Estilos para el título B
     }
-
-
-
-
-
-
-
   }
-
-
-
 }
 
-
 @media screen and (min-width: 1025px) {
+  .articles-index-container {
+    padding: 16px;
 
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 56px; // Aumentar el tamaño de la fuente para pantallas grandes
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
+  .articles-index-container {
+    padding: 12px;
 
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 44px; // Reducir el tamaño de la fuente para pantallas medianas
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .articles-index-container {
+    padding: 8px;
 
+    .articles-index-title {
+      flex-direction: column; // Cambiar la dirección del flex para pantallas más pequeñas
+      align-items: flex-start;
+
+      .articles-index-title-card-A {
+        font-size: 36px; // Reducir aún más el tamaño de la fuente
+      }
+    }
+  }
 }
 
-
 @media screen and (max-width: 480px) {
+  .articles-index-container {
+    padding: 4px;
 
+    .articles-index-title {
+      .articles-index-title-card-A {
+        font-size: 28px; // Tamaño de fuente muy pequeño para pantallas móviles
+      }
+    }
+  }
 }

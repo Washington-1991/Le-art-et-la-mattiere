@@ -45,6 +45,11 @@
       <% else %>
         <p>Pas des articles disponibles.</p>
       <% end %>
+        <%= link_to 'Voir', article_path(article), class: 'btn btn-info' %>
+        <%= link_to 'Éditer', edit_article_path(article), class: 'btn btn-warning' %>
+      </td>
+    </tr>
+    <% end %>
 
     </tbody>
   </table>

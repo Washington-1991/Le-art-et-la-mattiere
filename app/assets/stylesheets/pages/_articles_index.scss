@@ -50,8 +50,10 @@
     padding: 8px;
 
     .articles-index-title {
+
       flex-direction: column; // Cambiar la dirección del flex para pantallas más pequeñas
       align-items: flex-start;
+      padding: 0 8px;
 
       .articles-index-title-card-A {
         font-size: 36px; // Reducir aún más el tamaño de la fuente

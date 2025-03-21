@@ -3,9 +3,12 @@
 
 <div class="articles-index-container">
 
+  <%= render 'shared/header' %>
 
+  <div class="articles-index-title">
+    <h1>Liste des Articles</h1>
+  </div>
 
-  <h1>Liste des Articles</h1>
 
   <%= link_to 'Nouvel Article', new_article_path, class: 'btn btn-primary' %>
 

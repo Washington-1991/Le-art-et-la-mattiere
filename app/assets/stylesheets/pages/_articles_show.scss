@@ -10,12 +10,14 @@
     margin-bottom: 20px;
 
     .articles-show-title-card-A {
+
       h1 {
         color: #9a5f45;
       }
       font-size: 48px;
       font-family: "Dancing Script", serif;
       font-weight: 600;
+
     }
 
     .articles-show-title-card-B {
@@ -33,7 +35,9 @@
     box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
     gap: 20px;
 
+
     .articles-show-image {
+
       img {
         max-width: 100%;
         height: auto;
@@ -45,12 +49,14 @@
       display: flex;
       flex-direction: column;
 
-      p {
-        font-size: 18px;
-        margin-bottom: 10px;
+      .articles-show-details {
+        p {
+          font-size: 18px;
+          margin-bottom: 10px;
 
-        strong {
-          color: #9a5f45;
+          strong {
+            color: #9a5f45;
+          }
         }
       }
 
@@ -64,50 +70,168 @@
           padding: 8px 16px;
         }
       }
+
     }
+
   }
 }
 
 @media screen and (min-width: 1025px) {
   .articles-show-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px;
+    background-color: white;
+    padding: 8px;
+
+    .articles-show-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 32px;
+      margin-bottom: 20px;
+
+      .articles-show-title-card-A {
+
+        h1 {
+          color: #9a5f45;
+        }
+        font-size: 48px;
+        font-family: "Dancing Script", serif;
+        font-weight: 600;
+
+      }
+
+      .articles-show-title-card-B {
+        .btn {
+          font-size: 16px;
+          padding: 8px 16px;
+        }
+      }
+    }
 
     .articles-show-content {
-      flex-direction: row;
-      gap: 40px;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
+      gap: 20px;
+
 
       .articles-show-image {
-        flex: 1;
+
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          max-width: 100%;
+          height: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
       }
 
       .articles-show-details {
-        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .articles-show-details {
+          p {
+            font-size: 18px;
+            margin-bottom: 10px;
+
+            strong {
+              color: #9a5f45;
+            }
+          }
+        }
+
+        .articles-show-actions {
+          display: flex;
+          gap: 10px;
+          margin-top: auto;
+
+          .btn {
+            font-size: 16px;
+            padding: 8px 16px;
+          }
+        }
+
       }
+
     }
   }
 }
 
 @media screen and (max-width: 1024px) {
   .articles-show-container {
-    padding: 12px;
+    background-color: white;
+    padding: 8px;
 
     .articles-show-title {
-      margin: 0 24px 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 32px;
+      margin-bottom: 20px;
 
       .articles-show-title-card-A {
-        font-size: 42px;
+
+        h1 {
+          color: #9a5f45;
+        }
+        font-size: 48px;
+        font-family: "Dancing Script", serif;
+        font-weight: 600;
+
+      }
+
+      .articles-show-title-card-B {
+        .btn {
+          font-size: 16px;
+          padding: 8px 16px;
+        }
       }
     }
 
     .articles-show-content {
-      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
+      gap: 20px;
+
+
+      .articles-show-image {
+
+        img {
+          max-width: 100%;
+          height: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .articles-show-details {
+        display: flex;
+        flex-direction: column;
+
+        .articles-show-details {
+          p {
+            font-size: 18px;
+            margin-bottom: 10px;
+
+            strong {
+              color: #9a5f45;
+            }
+          }
+        }
+
+        .articles-show-actions {
+          display: flex;
+          gap: 10px;
+          margin-top: auto;
+
+          .btn {
+            font-size: 16px;
+            padding: 8px 16px;
+          }
+        }
+
+      }
+
     }
   }
 }

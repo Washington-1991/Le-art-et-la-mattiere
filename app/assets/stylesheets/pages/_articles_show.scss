@@ -29,10 +29,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 2px solid black;
 
 
     .articles-show-image {
+      border: 2px solid black;
+
       img {
         max-width: 100%;
         height: auto;

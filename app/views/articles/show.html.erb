@@ -20,17 +20,22 @@
     </div>
 
     <div class="articles-show-details">
-      <p><strong>Nom :</strong> <%= @article.name %></p>
-      <p><strong>Prix :</strong> <%= @article.price %></p>
-      <p><strong>Stock :</strong> <%= @article.stock %></p>
-      <p><strong>Catégorie :</strong> <%= @article.category %></p>
-      <p><strong>Description :</strong> <%= @article.description %></p>
-    </div>
-
-    <div class="articles-show-actions">
+      <div class="articles-show-descript">
+        <p><strong>Nom :</strong> <%= @article.name %></p>
+        <p><strong>Prix :</strong> <%= @article.price %></p>
+        <p><strong>Stock :</strong> <%= @article.stock %></p>
+        <p><strong>Catégorie :</strong> <%= @article.category %></p>
+        <p><strong>Description :</strong> <%= @article.description %></p>
+      </div>
+      <div class="articles-show-actions">
       <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %>
       <%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
     </div>
+
+
+    </div>
+
+
   </div>
 
 </div>

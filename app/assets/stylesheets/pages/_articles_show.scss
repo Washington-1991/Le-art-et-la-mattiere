@@ -36,8 +36,6 @@
 
     .articles-show-image {
 
-      // border: 2px solid black;
-
       img {
         max-width: 100%;
         height: auto;
@@ -61,6 +59,7 @@
       }
 
       .articles-show-actions {
+        border: 2px solid black;
         display: flex;
         gap: 10px;
 

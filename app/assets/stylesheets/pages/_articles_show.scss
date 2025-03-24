@@ -79,151 +79,17 @@
 }
 
 @media screen and (min-width: 1025px) {
-  .articles-show-container {
-    padding: 16px;
 
-    .articles-show-title {
-      .articles-show-title-card-A {
-        font-size: 56px;
-      }
-
-      .articles-show-title-card-B {
-        .btn {
-          font-size: 18px;
-          padding: 10px 20px;
-        }
-      }
-    }
-
-    .articles-show-content {
-      flex-direction: row;
-
-      .articles-show-image {
-        flex: 1;
-      }
-
-      .articles-show-details {
-        flex: 2;
-        p {
-          font-size: 20px;
-        }
-      }
-
-      .articles-show-actions {
-        .btn {
-          font-size: 18px;
-          padding: 10px 20px;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 1024px) {
-  .articles-show-container {
-    padding: 12px;
 
-    .articles-show-title {
-      .articles-show-title-card-A {
-        font-size: 44px;
-      }
-
-      .articles-show-title-card-B {
-        .btn {
-          font-size: 16px;
-          padding: 8px 16px;
-        }
-      }
-    }
-
-    .articles-show-content {
-      .articles-show-details {
-        p {
-          font-size: 18px;
-        }
-      }
-
-      .articles-show-actions {
-        .btn {
-          font-size: 16px;
-          padding: 8px 16px;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 768px) {
-  .articles-show-container {
-    padding: 8px;
 
-    .articles-show-title {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-
-      .articles-show-title-card-A {
-        font-size: 36px;
-      }
-
-      .articles-show-title-card-B {
-        .btn {
-          font-size: 14px;
-          padding: 6px 12px;
-        }
-      }
-    }
-
-    .articles-show-content {
-      .articles-show-details {
-        p {
-          font-size: 16px;
-        }
-      }
-
-      .articles-show-actions {
-        flex-direction: column;
-        gap: 8px;
-
-        .btn {
-          font-size: 14px;
-          padding: 6px 12px;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 480px) {
-  .articles-show-container {
-    padding: 4px;
 
-    .articles-show-title {
-      .articles-show-title-card-A {
-        font-size: 28px;
-      }
-
-      .articles-show-title-card-B {
-        .btn {
-          font-size: 12px;
-          padding: 4px 8px;
-        }
-      }
-    }
-
-    .articles-show-content {
-      .articles-show-details {
-        p {
-          font-size: 14px;
-        }
-      }
-
-      .articles-show-actions {
-        .btn {
-          font-size: 12px;
-          padding: 4px 8px;
-        }
-      }
-    }
-  }
 }

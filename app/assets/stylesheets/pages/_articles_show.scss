@@ -47,6 +47,8 @@
     }
 
     .articles-show-details {
+      display: flex;
+      flex-direction: column;
 
       .articles-show-details {
         p {

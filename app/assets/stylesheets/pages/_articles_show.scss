@@ -18,7 +18,6 @@
     }
 
     .articles-show-title-card-B {
-      border: 2px solid black;
       .btn {
         font-size: 16px;
         padding: 8px 16px;
@@ -30,6 +29,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border: 2px solid black;
+
 
     .articles-show-image {
       img {

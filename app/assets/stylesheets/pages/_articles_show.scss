@@ -198,6 +198,7 @@
 
 
       .articles-show-image {
+        width: 50%;
 
         img {
           max-width: 80vh;
@@ -207,6 +208,7 @@
       }
 
       .articles-show-details {
+        width: 50%;
         display: flex;
         flex-direction: column;
 

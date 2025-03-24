@@ -11,7 +11,10 @@
 
 
     .articles-show-title-card-A {
-      color: #9a5f45;
+
+      h1 {
+        color: #9a5f45;
+      }
       font-size: 48px;
       font-family: "Dancing Script", serif;
       font-weight: 600;

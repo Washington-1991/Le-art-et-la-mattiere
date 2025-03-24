@@ -32,9 +32,9 @@
 
   .articles-show-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin: 10vh;
+    margin: 0 20vh;
     padding: 16px;
     box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
     gap: 20px;
@@ -51,7 +51,6 @@
     .articles-show-details {
       display: flex;
       flex-direction: column;
-      justify-content: start;
 
       .articles-show-details {
         p {

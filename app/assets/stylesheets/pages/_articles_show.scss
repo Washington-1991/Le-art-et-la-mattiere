@@ -8,22 +8,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 5vw;
+    margin: 0 32px;
     margin-bottom: 20px;
-    flex-wrap: wrap;
 
     .articles-show-title-card-A {
+
       h1 {
         color: #9a5f45;
       }
-      font-size: 4vw;
+      font-size: 48px;
       font-family: "Dancing Script", serif;
       font-weight: 600;
+
     }
 
     .articles-show-title-card-B {
       .btn {
-        font-size: 1rem;
+        font-size: 16px;
         padding: 8px 16px;
       }
     }
@@ -33,15 +34,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 5vw;
+    margin: 0 30vh;
     padding: 16px;
     box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
     gap: 20px;
-    flex-wrap: wrap;
 
     .articles-show-image {
+
       img {
-        max-width: 50vw;
+        max-width: 50vh;
         height: auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
@@ -51,12 +52,14 @@
       display: flex;
       flex-direction: column;
 
-      p {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
+      .articles-show-details {
+        p {
+          font-size: 18px;
+          margin-bottom: 10px;
 
-        strong {
-          color: #9a5f45;
+          strong {
+            color: #9a5f45;
+          }
         }
       }
 
@@ -66,11 +69,13 @@
         margin-top: auto;
 
         .btn {
-          font-size: 1rem;
+          font-size: 16px;
           padding: 8px 16px;
         }
       }
+
     }
+
   }
 }
 

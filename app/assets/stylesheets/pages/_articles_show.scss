@@ -1,4 +1,4 @@
-// SCSS crrespondiente a articles show
+// SCSS correspondiente a articles show responsive
 
 .articles-show-container {
   background-color: white;
@@ -8,23 +8,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 32px;
+    margin: 0 5vw;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 
     .articles-show-title-card-A {
-
       h1 {
         color: #9a5f45;
       }
-      font-size: 48px;
+      font-size: 4vw;
       font-family: "Dancing Script", serif;
       font-weight: 600;
-
     }
 
     .articles-show-title-card-B {
       .btn {
-        font-size: 16px;
+        font-size: 1rem;
         padding: 8px 16px;
       }
     }
@@ -34,15 +33,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 30vh;
+    margin: 0 5vw;
     padding: 16px;
     box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
     gap: 20px;
+    flex-wrap: wrap;
 
     .articles-show-image {
-
       img {
-        max-width: 50vh;
+        max-width: 50vw;
         height: auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
@@ -52,14 +51,12 @@
       display: flex;
       flex-direction: column;
 
-      .articles-show-details {
-        p {
-          font-size: 18px;
-          margin-bottom: 10px;
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
 
-          strong {
-            color: #9a5f45;
-          }
+        strong {
+          color: #9a5f45;
         }
       }
 
@@ -69,28 +66,53 @@
         margin-top: auto;
 
         .btn {
-          font-size: 16px;
+          font-size: 1rem;
           padding: 8px 16px;
         }
       }
-
     }
-
   }
 }
 
-@media screen and (min-width: 1025px) {
-
-}
-
+// Responsive adjustments
 @media screen and (max-width: 1024px) {
+  .articles-show-title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
+  .articles-show-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .articles-show-image img {
+    max-width: 80vw;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .articles-show-title-card-A {
+    font-size: 6vw;
+  }
 
+  .articles-show-content {
+    margin: 0 3vw;
+    gap: 15px;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .articles-show-title-card-A {
+    font-size: 7vw;
+  }
 
+  .articles-show-content {
+    padding: 8px;
+  }
+
+  .articles-show-image img {
+    max-width: 90vw;
+  }
 }

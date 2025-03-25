@@ -37,7 +37,6 @@
     tbody {
       tr {
         td {
-          padding: 8px;
           padding: 12px;
           border-bottom: 1px solid #dee2e6;
 
@@ -49,6 +48,12 @@
 
         &:hover {
           background-color: #f1f1f1;
+        }
+
+        td {
+          .btn {
+            margin: 4px;
+          }
         }
       }
     }

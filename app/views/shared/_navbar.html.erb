@@ -10,7 +10,18 @@
   <div class="navbar-right-card">
 
       <a href="https://www.instagram.com/lart_et_la_matiere1/" target=blank_to><i class="fa-brands fa-instagram"></i></a></li>
-      <a href="#"><i class="fa-regular fa-user"></i></a></li>
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <i class="fa-regular fa-user"></i>
+          </a>
+          <ul class="dropdown-menu">
+        <li><a href="#">Desconectarse</a></li>
+          </ul>
+        </div>
+      <% else %>
+        <a href="#"><i class="fa-regular fa-user"></i> Conectarse</a>
+      <% end %>
       <a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
   </div>
 

@@ -3,7 +3,7 @@
 <nav class="navbar">
   <div class="navbar-left-card">
     <%# <h2>Livraison offerte des 65€ | Paiment securise </h2> %>
-    <a href="">Presentation</a>
+    <a href="">Présentation</a>
     <a href="">Contact</a>
   </div>
 
@@ -14,11 +14,11 @@
       <a href="#" class="user-icon" id="userMenuButton"><i class="fa-regular fa-user"></i></a>
       <div class="user-menu-dropdown" id="userMenuDropdown">
         <% if user_signed_in? %>
-          <%= link_to "Mi perfil", user_path(current_user) %>
-          <%= link_to "Cerrar sesión", destroy_user_session_path, data: { "turbo-method": :delete } %>
+          <%= link_to "Mon profil", user_path(current_user) %>
+          <%= link_to "Se déconnecter", destroy_user_session_path, data: { "turbo-method": :delete } %>
         <% else %>
-          <%= link_to "Iniciar sesión", new_user_session_path %>
-          <%= link_to "Registrarse", new_user_registration_path %>
+          <%= link_to "Se connecter", new_user_session_path %>
+          <%= link_to "S'inscrire", new_user_registration_path %>
         <% end %>
       </div>
     </div>

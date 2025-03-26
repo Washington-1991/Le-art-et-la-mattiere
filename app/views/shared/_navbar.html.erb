@@ -1,4 +1,4 @@
-<%# HTML correspndiente a la navbar %>
+<%# HTML correspondiente a la navbar %>
 
 <nav class="navbar">
   <div class="navbar-left-card">
@@ -8,9 +8,76 @@
   </div>
 
   <div class="navbar-right-card">
-      <a href="https://www.instagram.com/lart_et_la_matiere1/" target=blank_to><i class="fa-brands fa-instagram"></i></a></li>
-      <a href="#"><i class="fa-regular fa-user"></i></a></li>
-      <a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
-  </div>
+    <a href="https://www.instagram.com/lart_et_la_matiere1/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 
+    <div class="user-menu-container">
+      <a href="#" class="user-icon" id="userMenuButton"><i class="fa-regular fa-user"></i></a>
+      <div class="user-menu-dropdown" id="userMenuDropdown">
+        <% if user_signed_in? %>
+          <%= link_to "Mi perfil", user_path(current_user) %>
+          <%= link_to "Cerrar sesión", destroy_user_session_path, data: { "turbo-method": :delete } %>
+        <% else %>
+          <%= link_to "Iniciar sesión", new_user_session_path %>
+          <%= link_to "Registrarse", new_user_registration_path %>
+        <% end %>
+      </div>
+    </div>
+
+    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+  </div>
 </nav>
+
+<style>
+  .user-menu-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .user-menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px 0;
+  }
+
+  .user-menu-dropdown a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .user-menu-dropdown a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .user-menu-container:hover .user-menu-dropdown {
+    display: block;
+  }
+</style>
+
+<script>
+  // Opcional: Puedes usar JavaScript para mejor control
+  document.addEventListener('DOMContentLoaded', function() {
+    const userMenuButton = document.getElementById('userMenuButton');
+    const userMenuDropdown = document.getElementById('userMenuDropdown');
+
+    userMenuButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      userMenuDropdown.style.display = userMenuDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Cerrar el menú al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+      if (!userMenuButton.contains(e.target) && !userMenuDropdown.contains(e.target)) {
+        userMenuDropdown.style.display = 'none';
+      }
+    });
+  });
+</script>

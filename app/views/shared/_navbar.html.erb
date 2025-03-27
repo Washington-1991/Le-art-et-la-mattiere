@@ -15,7 +15,7 @@
       <div class="user-menu-dropdown" id="userMenuDropdown">
         <% if user_signed_in? %>
           <%= link_to "Mon profil", user_path(current_user) %>
-          <%= link_to "Se déconnecter", destroy_user_session_path, data: { "turbo-method": :delete } %>
+          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
         <% else %>
           <%= link_to "Se connecter", new_user_session_path %>
           <%= link_to "S'inscrire", new_user_registration_path %>
@@ -63,7 +63,6 @@
 </style>
 
 <script>
-  // Opcional: Puedes usar JavaScript para mejor control
   document.addEventListener('DOMContentLoaded', function() {
     const userMenuButton = document.getElementById('userMenuButton');
     const userMenuDropdown = document.getElementById('userMenuDropdown');
@@ -79,5 +78,23 @@
         userMenuDropdown.style.display = 'none';
       }
     });
+
+    // Interceptar el cierre de sesión y enviarlo como DELETE
+    const logoutLink = document.querySelector('a[href="<%= destroy_user_session_path %>"]');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch(this.href, {
+          method: 'DELETE',
+          headers: {
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+          }
+        }).then(response => {
+          if (response.ok) {
+            window.location.href = '/'; // Redirige a la home después de cerrar sesión
+          }
+        });
+      });
+    }
   });
 </script>

@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-
   root to: "pages#home"
 
-  # articulos
+  # Articles routes
   resources :articles
 
-  # usuarios
-
+  # Users routes
   devise_for :users
-  resources :users, only: [:show]
+  get '/profile', to: 'users#show', as: :profile
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   get "up" => "rails/health#show", as: :rails_health_check
@@ -17,6 +15,6 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Nueva ruta para /presentation
+  # New route for /presentation
   get "presentation", to: "pages#presentation"
 end

@@ -1,0 +1,170 @@
+// SCSS correspondiente a la vista de edición de usuario
+
+.user-edit {
+  margin: 10vh;
+  background: white;
+  padding: 16px;
+  border: 2px solid #9a5f45;
+  border-radius: 8px;
+
+  h2 {
+    font-family: "Dancing Script", serif;
+    font-size: 36px;
+    color: #9a5f45;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-family: "Dancing Script", serif;
+    font-size: 28px;
+    color: #9a5f45;
+    margin: 24px 0 16px;
+    text-align: center;
+  }
+
+  .form-inputs {
+    margin-bottom: 24px;
+
+    .input {
+      margin-bottom: 16px;
+
+      label {
+        color: #9a5f45;
+        font-weight: 600;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #9a5f45;
+        border-radius: 4px;
+        margin-top: 4px;
+
+        &:focus {
+          outline: none;
+          border-color: #7e4a36;
+          box-shadow: 0 0 0 2px rgba(158, 95, 69, 0.2);
+        }
+      }
+
+      .hint {
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .form-actions {
+    text-align: center;
+
+    input[type="submit"] {
+      background-color: #9a5f45;
+      border-color: #9a5f45;
+      color: white;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #7e4a36;
+        border-color: #7e4a36;
+      }
+    }
+  }
+
+  > div:last-of-type {
+    text-align: center;
+    margin: 24px 0;
+
+    button {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      color: white;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #bb2d3b;
+        border-color: #bb2d3b;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    color: #9a5f45;
+    margin-top: 16px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}<%# HTML correspondiente a la vista de edición de usuario %>
+
+<%= render "shared/navbar" %>
+
+<%= render 'shared/header' %>
+
+<div class="user-edit">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="input">
+        <%= f.input :email, required: true, autofocus: true %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <div class="input">
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="input">
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="input">
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Update", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <h3>Cancel my account</h3>
+
+  <div class="cancel-account">
+    <%= button_to "Cancel my account",
+                  registration_path(resource_name),
+                  data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
+                  method: :delete,
+                  class: 'btn btn-danger' %>
+  </div>
+
+  <%= link_to "Back", :back, class: 'back-link' %>
+</div>

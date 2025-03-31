@@ -8,8 +8,13 @@ Rails.application.routes.draw do
 
   # Users routes
   devise_for :users
-  get '/profile', to: 'users#show', as: :profile
-  resources :users, only: [:index, :show]
+
+  resources :users, only: [:show]  # Solo permite `show` para todos
+  resources :users, only: [:index, :new, :create, :edit, :update, :destroy], constraints: lambda { |request| request.env["warden"].authenticate? && request.env["warden"].user.admin? }
+
+  root "home#index"  # O la página principal de tu app
+
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   get "up" => "rails/health#show", as: :rails_health_check
 

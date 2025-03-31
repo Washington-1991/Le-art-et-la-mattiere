@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # root to home
-  root to: "pages#home"  # Agrega esto nuevamente
+  root to: "pages#home"  # ESTA ES LA CORRECTA
   get '/home', to: 'pages#home', as: :home
 
   # Articles routes
@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show]  # Solo permite `show` para todos
-  resources :users, only: [:index, :new, :create, :edit, :update, :destroy], constraints: lambda { |request| request.env["warden"].authenticate? && request.env["warden"].user.admin? }
 
-  root "home#index"  # O la página principal de tu app
+  # Rutas para administradores (corregida sin constraints)
+  namespace :admin do
+    resources :users, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
 
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Health check
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/*
+  # PWA files
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 

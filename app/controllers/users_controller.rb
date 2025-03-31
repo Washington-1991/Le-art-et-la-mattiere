@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!  # Asegura que solo los usuarios autenticados puedan ver su perfil
+  before_action :authenticate_user!
+  before_action :authorize_admin, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -7,6 +8,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user  # Obtiene el usuario autenticado
+    @user = current_user  # Cada usuario solo puede ver su propio perfil
+  end
+
+  private
+
+  def authorize_admin
+    redirect_to root_path, alert: "No tienes permiso para ver esto" unless current_user.admin?
   end
 end

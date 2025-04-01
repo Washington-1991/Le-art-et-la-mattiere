@@ -13,7 +13,14 @@ class UsersController < ApplicationController
 
   private
 
+   # Método para verificar si el usuario es administrador
+  def admin?
+    role == "admin"
+  end
+
   def authorize_admin
     redirect_to root_path, alert: "No tienes permiso para ver esto" unless current_user.admin?
   end
+
+
 end

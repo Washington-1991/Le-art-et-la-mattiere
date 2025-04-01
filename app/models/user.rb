@@ -73,6 +73,11 @@ class User < ApplicationRecord
     last_activity_at < 30.days.ago
   end
 
+  # Método para verificar si el usuario es administrador
+  def admin?
+    role == "admin"
+  end
+
   private
 
   def password_required?

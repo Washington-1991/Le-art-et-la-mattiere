@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root to home
+  # Root to home
   root to: "pages#home"  # ESTA ES LA CORRECTA
   get '/home', to: 'pages#home', as: :home
 
@@ -11,10 +11,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]  # Solo permite `show` para todos
 
-  # Rutas para administradores (corregida sin constraints)
+  # Rutas para administradores (añadida ruta del dashboard)
   namespace :admin do
     resources :users, only: [:index, :new, :create, :edit, :update, :destroy]
   end
+
+  get "admin_dashboard", to: "pages#admin_dashboard", as: :admin_dashboard
 
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check

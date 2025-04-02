@@ -5,9 +5,12 @@
   .admin-dashboard-title-card-A {
     height: 100vh;
     width: 50%;
-    border: 2px solid black;
 
     .admin-dashboard-title {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid black;
 
       h1 {
         color: #9a5f45;

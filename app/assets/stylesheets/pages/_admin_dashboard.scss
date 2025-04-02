@@ -32,6 +32,21 @@
       background: linear-gradient(145deg, #cacaca, #f0f0f0);
       box-shadow:  20px 20px 60px #bebebe,
                   -20px -20px 60px #ffffff;
+      margin: 8px;
+
+      h2 {
+        color: #9a5f45;
+        font-size: 24px;
+        font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+        font-weight: 600;
+      }
+
+      p {
+        color: #9a5f45;
+        font-size: 18px;
+        font-family: "Dancing Script", serif; // Aplicando la nueva fuente
+        font-weight: 400;
+      }
     }
 
 

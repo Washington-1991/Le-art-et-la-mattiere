@@ -1,10 +1,15 @@
 .admin-dashboard {
   padding: 20px;
 
-  .dashboard-sections {
-    display: flex;
-    gap: 20px;
+  .admin-dashboard-title {
+
+    .dashboard-sections {
+      display: flex;
+      gap: 20px;
+    }
+
   }
+
 
   .section {
     border: 1px solid #ccc;

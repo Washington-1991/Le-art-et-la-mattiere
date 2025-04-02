@@ -11,7 +11,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid black;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #cacaca, #f0f0f0);
+      box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
 
       h1 {
         color: #9a5f45;

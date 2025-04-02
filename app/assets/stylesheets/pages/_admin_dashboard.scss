@@ -1,10 +1,13 @@
 .admin-dashboard {
   padding: 20px;
+
+  .dashboard-sections {
+    display: flex;
+    gap: 20px;
+  }
+
 }
-.dashboard-sections {
-  display: flex;
-  gap: 20px;
-}
+
 .section {
   border: 1px solid #ccc;
   padding: 15px;

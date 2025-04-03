@@ -60,14 +60,60 @@
     margin: 8px 8px 8px 8px;
     gap: 8px;
 
+    .dashboard-sections {
+
+      padding: 15px;
+      text-align: center;
+      border-radius: 16px;
+      background: #008000;
+      box-shadow:  20px 20px 60px #006d00,
+             -20px -20px 60px #009300;
+
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .section-contenu {
+
+      padding: 15px;
+      text-align: center;
+      border-radius: 16px;
+      background: #FFFF00;
+      box-shadow:  20px 20px 60px #d9d900,
+             -20px -20px 60px #ffff00;
+
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+    }
+
     .section {
 
       padding: 15px;
       text-align: center;
       border-radius: 16px;
-      background: linear-gradient(145deg, #cacaca, #f0f0f0);
-      box-shadow:  20px 20px 60px #bebebe,
-                    -20px -20px 60px #ffffff;
+      background: #008000;
+      box-shadow:  20px 20px 60px #006d00,
+             -20px -20px 60px #009300;
 
       .btn {
         display: inline-block;

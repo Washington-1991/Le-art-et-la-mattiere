@@ -13,6 +13,10 @@
     <div class="user-menu-container">
       <a href="#" class="user-icon" id="userMenuButton"><i class="fa-regular fa-user"></i></a>
       <div class="user-menu-dropdown" id="userMenuDropdown">
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to "Admin Dashboard", admin_dashboard_path %>
+        <% end %>
+
         <% if user_signed_in? %>
           <%= link_to "Mon profil", user_path(current_user) %>
           <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>

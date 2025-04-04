@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # Users routes
   devise_for :users
 
+  # Admin routes
+  namespace :admin do
+    resources :products
+  end
+
   resources :users, only: [:show]  # Solo permite `show` para todos
 
   # Rutas para administradores (añadida ruta del dashboard)

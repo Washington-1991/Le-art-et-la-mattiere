@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :admin do
+    get "users/index"
+    get "users/new"
+    get "users/edit"
     resources :products
   end
   get "/admin", to: "admin#index"

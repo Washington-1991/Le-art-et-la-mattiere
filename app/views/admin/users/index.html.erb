@@ -8,5 +8,11 @@
 <ul>
   <% @users.each do |user| %>
     <li><%= user.email %></li>
+    <li><%= user.first_name %></li>
+    <li><%= user.last_name %></li>
+    <li><%= user.role %></li>
+    <li><%= user.created_at %></li>
+    <li><%= user.updated_at %></li>
+
   <% end %>
 </ul>

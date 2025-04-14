@@ -2,6 +2,8 @@
 
 <%= render 'shared/header' %>
 
+<%= link_to 'Retour', request.referer || root_path, class: 'btn btn-secondary' %>
+
 <h1>Utilisateurs</h1>
 <table>
   <thead>

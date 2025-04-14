@@ -3,27 +3,32 @@
 <%= render 'shared/header' %>
 
 <div class="admin-users">
+  <div class="admin-users-tit">
+    <%= link_to 'Retour', request.referer || root_path, class: 'btn btn-secondary' %>
+    <h1>Utilisateurs</h1>
+  </div>
+
+
+
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
-
-<%= link_to 'Retour', request.referer || root_path, class: 'btn btn-secondary' %>
-
-<h1>Utilisateurs</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Created At</th>
-      <th>Updated At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.created_at %></td>
-        <td><%= user.updated_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

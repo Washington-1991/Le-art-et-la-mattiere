@@ -1,16 +1,15 @@
+<%# HTML correspondietne a la vision de utilizadores por parte del administrador %>
+
 <%= render "shared/navbar" %>
 
 <%= render 'shared/header' %>
+
 
 <div class="admin-users">
   <div class="admin-users-tit">
     <%= link_to 'Retour', request.referer || root_path, class: 'btn btn-secondary' %>
     <h1>Utilisateurs</h1>
   </div>
-
-
-
-
 
   <table>
     <thead>

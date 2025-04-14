@@ -2,4 +2,14 @@
 
 .admin-users {
   border: 1px solid black;
+  margin: 8px;
+
+  .admin-users-title {
+    font-size: 2rem;
+    color: $text-color;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex
+
+  }
 }

@@ -1,7 +1,6 @@
 // SCSS correspondiente a la paginad de visualizacon de usuarios
 
 .admin-users {
-  border: 1px solid black;
   margin: 8px;
 
   .admin-users-title {
@@ -13,6 +12,8 @@
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    border: 1px solid black;
+
 
   }
 

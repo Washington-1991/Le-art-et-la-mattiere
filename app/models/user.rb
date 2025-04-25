@@ -6,6 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # Asociaciones
+  has_many :carts, dependent: :destroy
+
   # Constantes para la seguridad
   VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
   PASSWORD_FORMAT = /\A

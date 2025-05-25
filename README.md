@@ -21,7 +21,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- Shared -->
 <!-- shared/business cards 25May25 -->
 <!-- shared/creations cards 25May25 -->
-<!-- shared/flashes -->
+<!-- shared/flashes 25May25 -->
 <!-- shared/header -->
 <!-- shared/home intro -->
 <!-- shared/main -->

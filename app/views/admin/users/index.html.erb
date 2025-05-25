@@ -1,17 +1,22 @@
 <%# HTML correspondietne a la vision de utilizadores por parte del administrador %>
 <%# Ultima actualizacion 25May25 %>
 
+<%# barra de navegacion %>
 <%= render "shared/navbar" %>
 
+<%# cabecera de la pagina %>
 <%= render 'shared/header' %>
 
-
+<%# division general %>
 <div class="admin-users">
+
+  <%# titulo %>
   <div class="admin-users-title">
     <h1>Utilisateurs</h1>
     <%= link_to 'Retour', request.referer || root_path, class: 'btn btn-secondary' %>
   </div>
 
+  <%# tabla de usuarios administradores %>
   <div class="admin-users-table">
     <table>
       <thead>
@@ -33,7 +38,5 @@
     </table>
 
   </div>
-
-
 
 </div>

@@ -26,7 +26,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- shared/home intro (a finalizar)-->
 <!-- shared/main (finalizar las secciones) ultima actualizacion 25May25-->
 <!-- shared/navbar 25May25-->
-<!-- shared/postal -->
+<!-- shared/postal 25May25 -->
 
 <!-- Users -->
 <!-- users/show -->

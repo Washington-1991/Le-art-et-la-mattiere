@@ -9,6 +9,6 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 <!-- Articles -->
 <!-- articles/edit 25May25 -->
-<!-- articles/index -->
+<!-- articles/index 25May25 -->
 <!-- articles/new -->
 <!-- articles/show -->

@@ -22,7 +22,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- shared/business cards 25May25 -->
 <!-- shared/creations cards 25May25 -->
 <!-- shared/flashes 25May25 -->
-<!-- shared/header -->
+<!-- shared/header 25May25 -->
 <!-- shared/home intro -->
 <!-- shared/main -->
 <!-- shared/navbar -->

@@ -17,3 +17,13 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- admin_dashboard 25May25 -->
 <!-- home -->
 <!-- presentacion 25May25 -->
+
+<!-- Shared -->
+<!-- business cards -->
+<!-- creations cards -->
+<!-- flashes -->
+<!-- header -->
+<!-- home intro -->
+<!-- main -->
+<!-- navbar -->
+<!-- postal -->

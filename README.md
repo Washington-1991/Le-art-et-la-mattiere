@@ -12,3 +12,8 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- articles/index 25May25 -->
 <!-- articles/new 25May25 -->
 <!-- articles/show 25May25 -->
+
+<!-- Pages -->
+<!-- admin_dashboard  -->
+<!-- home -->
+<!-- presentacion -->

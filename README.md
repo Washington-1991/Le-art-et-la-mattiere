@@ -4,5 +4,5 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 <!-- admin -->
 <!-- admin/edit 25May25-->
-<!-- admin/index  -->
+<!-- admin/index 25May25 -->
 <!-- admin/new -->

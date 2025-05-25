@@ -11,4 +11,4 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- articles/edit 25May25 -->
 <!-- articles/index 25May25 -->
 <!-- articles/new 25May25 -->
-<!-- articles/show -->
+<!-- articles/show 25May25 -->

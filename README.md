@@ -3,4 +3,6 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- Responsive ultima actualizacion 25May25 -->
 
 <!-- admin -->
-<!-- admin-edit 25May25-->
+<!-- admin/edit 25May25-->
+<!-- admin/index  -->
+<!-- admin/new -->

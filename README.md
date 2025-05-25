@@ -29,4 +29,4 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- shared/postal 25May25 -->
 
 <!-- Users -->
-<!-- users/show -->
+<!-- users/show Ul-->

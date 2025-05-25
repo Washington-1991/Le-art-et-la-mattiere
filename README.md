@@ -19,11 +19,14 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- presentacion 25May25 -->
 
 <!-- Shared -->
-<!-- business cards -->
-<!-- creations cards -->
-<!-- flashes -->
-<!-- header -->
-<!-- home intro -->
-<!-- main -->
-<!-- navbar -->
-<!-- postal -->
+<!-- shared/business cards -->
+<!-- shared/creations cards -->
+<!-- shared/flashes -->
+<!-- shared/header -->
+<!-- shared/home intro -->
+<!-- shared/main -->
+<!-- shared/navbar -->
+<!-- shared/postal -->
+
+<!-- Users -->
+<!-- users/show -->

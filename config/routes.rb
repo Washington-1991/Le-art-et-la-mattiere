@@ -18,7 +18,12 @@ Rails.application.routes.draw do
   end
   get "/admin", to: "admin#index"
 
-  resources :users, only: [:show]  # Solo permite `show` para todos
+  resources :users, only: [:show]
+
+  # Cart routes
+  resource :cart, only: [:show]
+  resources :cart_items, only: [:create, :update, :destroy]
+
 
   # Rutas para administradores (añadida ruta del dashboard)
   namespace :admin do

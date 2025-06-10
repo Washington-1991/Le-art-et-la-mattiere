@@ -38,6 +38,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- Carts/item/delete -->
 
 <!-- Commandes -->
+<!-- Commande/show -->
 
 <!-- Style/SCSS -->
 <!-- components -->

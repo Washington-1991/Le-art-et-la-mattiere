@@ -32,5 +32,8 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- Users -->
 <!-- users/show 25May25-->
 
+<!-- Carts -->
+<!-- Carts/show -->
+
 <!-- Style/SCSS -->
 <!-- components -->

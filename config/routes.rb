@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "carts/show"
   # Root to home
   root to: "pages#home"  # ESTA ES LA CORRECTA
   get '/home', to: 'pages#home', as: :home

@@ -45,6 +45,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # ✅ Nueva acción: vista por categoría
+  def category
+    category_param = params[:category].tr("-", " ").downcase
+
+    if Article::CATEGORIES.map(&:downcase).include?(category_param)
+      @articles = Article.where("LOWER(category) = ?", category_param)
+      @category = category_param.titleize
+      render category_param.gsub(" ", "_")
+    else
+      redirect_to articles_path, alert: "Catégorie inconnue"
+    end
+  end
+
   private
 
   def set_article

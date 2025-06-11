@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   # Articles routes
   resources :articles
+  # Rutas por categoría de artículos
+  get 'articles/:category', to: 'articles#category', as: :category_articles
+
 
   # Users routes
   devise_for :users

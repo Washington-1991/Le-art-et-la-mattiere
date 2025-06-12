@@ -14,10 +14,10 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- articles/new 25May25 -->
 <!-- articles/show 25May25 -->
 <!-- articles/carton - in process - -->
-<!-- articles/ fils - in process - -->
-<!-- articles/ papier_de_soie - in process - -->
-<!-- articles/ papier_mache - in process - -->
-<!-- articles: verre - in process - -->
+<!-- articles/fils - in process - -->
+<!-- articles/papier_de_soie - in process - -->
+<!-- articles/papier_mache - in process - -->
+<!-- articles/verre - in process - -->
 
 <!-- Pages -->
 <!-- admin_dashboard 25May25 -->

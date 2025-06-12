@@ -1,0 +1,15 @@
+<%# HTML correspondiente a papier mache %>
+<div class="articles-category-container">
+  <h1>Articles en Papier mâché</h1>
+  <div class="article-list">
+    <% @articles.each do |article| %>
+      <div class="article-card">
+        <%= image_tag article.image_url, alt: article.name %>
+        <h2><%= article.name %></h2>
+        <p><%= truncate(article.description, length: 100) %></p>
+        <p><strong><%= number_to_currency(article.price, unit: "€") %></strong></p>
+        <%= link_to "Voir l'article", article_path(article), class: "btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,15 +1,20 @@
-<%# HTML correspondiente a Verre %>
+<%# Vista mejorada para la categoría Verre con cartas de presentación de productos %>
 
 <div class="articles-category-container">
   <h1>Articles en Verre</h1>
-  <div class="article-list">
+
+  <div class="article-cards-grid">
     <% @articles.each do |article| %>
-      <div class="article-card">
-        <%= image_tag article.image_url, alt: article.name %>
-        <h2><%= article.name %></h2>
-        <p><%= truncate(article.description, length: 100) %></p>
-        <p><strong><%= number_to_currency(article.price, unit: "€") %></strong></p>
-        <%= link_to "Voir l'article", article_path(article), class: "btn btn-outline-secondary" %>
+      <div class="product-card">
+        <div class="product-image">
+          <%= image_tag article.image_url, alt: article.name %>
+        </div>
+        <div class="product-details">
+          <h2 class="product-name"><%= article.name %></h2>
+          <p class="product-description"><%= truncate(article.description, length: 100) %></p>
+          <p class="product-price"><%= number_to_currency(article.price, unit: "€") %></p>
+          <%= link_to "Voir l'article", article_path(article), class: "product-link" %>
+        </div>
       </div>
     <% end %>
   </div>

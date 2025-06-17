@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'categories/:category', to: 'articles#category', as: :category_articles
   resources :articles
 
-
   # Users routes
   devise_for :users
 

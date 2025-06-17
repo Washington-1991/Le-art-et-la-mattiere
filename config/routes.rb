@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home', as: :home
 
   # Articles routes
-  resources :articles
   # Rutas por categoría de artículos
-  get 'articles/:category', to: 'articles#category', as: :category_articles
+  get 'categories/:category', to: 'articles#category', as: :category_articles
+  resources :articles
 
 
   # Users routes

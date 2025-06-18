@@ -46,9 +46,9 @@ class ArticlesController < ApplicationController
   end
 
   # ✅ Nueva acción: vista por categoría
-  def category
-    @category = params[:category]
-    @articles = Article.where(category: @category)
+  def verre
+    @verre = params[:verre]
+    @articles = Article.where(verre: @verre)
   end
 
 

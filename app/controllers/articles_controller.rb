@@ -49,7 +49,12 @@ class ArticlesController < ApplicationController
   def category
     @category = params[:category]
     @articles = Article.where(category: @category)
+
+    if @articles.empty?
+      redirect_to root_path, alert: "Aucun article trouvé pour la catégorie #{@category}."
+    end
   end
+
 
 
   private

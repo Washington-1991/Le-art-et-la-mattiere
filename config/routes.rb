@@ -1,47 +1,34 @@
 Rails.application.routes.draw do
-  get "carts/show"
-  # Root to home
+  # Root
   root to: "pages#home"  # ESTA ES LA CORRECTA
   get '/home', to: 'pages#home', as: :home
 
-  # Articles routes
-  # Rutas por categoría de artículos
+  # Articles
   get 'categories/:category', to: 'articles#category', as: :category_articles
   resources :articles
 
-  # Users routes
+  # Users (Devise)
   devise_for :users
+  resources :users, only: [:show]
 
-  # Admin routes
+  # Admin
   namespace :admin do
-    get "users/index"
-    get "users/new"
-    get "users/edit"
+    resources :users
     resources :products
   end
   get "/admin", to: "admin#index"
-
-  resources :users, only: [:show]
-
-  # Cart routes
-  resource :cart, only: [:show]
-  resources :cart_items, only: [:create, :update, :destroy]
-
-
-  # Rutas para administradores (añadida ruta del dashboard)
-  namespace :admin do
-    resources :users, only: [:index, :new, :create, :edit, :update, :destroy]
-  end
-
   get "admin_dashboard", to: "pages#admin_dashboard", as: :admin_dashboard
 
-  # Health check
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Cart
+  resource :cart, only: [:show]
+  resources :cart_items, only: [:create, :update, :destroy]
+  get "carts/show"  # Puedes considerar eliminar esta si ya usas resource :cart
 
-  # PWA files
+  # PWA
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # New route for /presentation
+  # Misc
   get "presentation", to: "pages#presentation"
+  get "up" => "rails/health#show", as: :rails_health_check
 end

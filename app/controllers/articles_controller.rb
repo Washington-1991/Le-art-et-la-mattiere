@@ -5,8 +5,7 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @article = Article.new
@@ -21,8 +20,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @article.update(article_params)
@@ -33,19 +31,14 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find_by(id: params[:id])
-    if @article
-      @article.destroy
-      respond_to do |format|
-        format.html { redirect_to articles_path, notice: 'Article supprimé avec succès.' }
-        format.turbo_stream
-      end
-    else
-      redirect_to articles_path, alert: "Article non trouvé"
+    @article.destroy
+    respond_to do |format|
+      format.html { redirect_to articles_path, notice: 'Article supprimé avec succès.' }
+      format.turbo_stream
     end
   end
 
-  # ✅ Nueva acción: vista por categoría
+  # ✅ Vista por categoría
   def category
     @category = params[:category]
     @articles = Article.where(category: @category)
@@ -55,13 +48,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-
-
   private
 
   def set_article
     @article = Article.find_by(id: params[:id])
-    redirect_to articles_path, alert: "Artícle non trouvé" if @article.nil?
+    redirect_to articles_path, alert: "Article non trouvé" if @article.nil?
   end
 
   def article_params

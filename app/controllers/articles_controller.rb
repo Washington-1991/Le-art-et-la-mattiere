@@ -41,12 +41,15 @@ class ArticlesController < ApplicationController
   # ✅ Vista por categoría
   def category
     @category = params[:category]
-    @articles = Article.where("LOWER(category) = LOWER(?)", @category.downcase)
+    @articles = Article.where('LOWER(category) = ?', @category.downcase)
 
-    if @articles.empty?
-      redirect_to root_path, alert: "Aucun article trouvé pour la catégorie #{@category}."
+    if lookup_context.template_exists?(@category, 'articles')
+      render @category
+    else
+      render plain: "Category page not found", status: :not_found
     end
   end
+
 
   private
 

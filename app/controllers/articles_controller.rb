@@ -39,16 +39,24 @@ class ArticlesController < ApplicationController
   end
 
   # ✅ Vista por categoría
+  CATEGORIES = %w[verre bois metal papier textile] # Ajusta según tus categorías reales
+
   def category
-    @category = params[:category]
-    @articles = Article.where('LOWER(category) = ?', @category.downcase)
+    @category = params[:category].downcase
+
+    unless CATEGORIES.include?(@category)
+      render plain: "Catégorie inconnue", status: :not_found and return
+    end
+
+    @articles = Article.where('LOWER(category) = ?', @category)
 
     if lookup_context.template_exists?(@category, 'articles')
       render @category
     else
-      render plain: "Category page not found", status: :not_found
+      render plain: "Page pour la catégorie non trouvée", status: :not_found
     end
   end
+
 
 
   private

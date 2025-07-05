@@ -24,65 +24,99 @@
   }
 
   .article-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 3rem;
-    padding: 3rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
 
     .product-card {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
+      height: 60vh;
+      width: 25%;
       background-color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      padding: 1rem;
+      padding: 0;
 
       &:hover {
         transform: scale(1.02);
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       }
-    }
 
-    .product-image {
-      width: 100%;
-      max-width: 250px;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      margin-bottom: 1rem;
-
-      img {
+      .product-image {
+        height: 50%;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 4px;
-      }
-    }
+        overflow: hidden;
+        margin: 16px;
 
-    .product-details {
-      .product-name {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.2rem;
-        color: #3e3e3e;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
-      .product-price {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 0.5rem;
-      }
+      .product-details {
+        width: 100%;
 
-      .product-description {
-        display: none; // No se usa en el diseño original, se oculta
-      }
+        .product-name {
+          height: 20%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-      .product-link {
-        display: none; // También oculto si no querés botón visible
+          h2 {
+            color: #9a5f45;
+            font-family: "Dancing Script", serif;
+            font-weight: 600;
+            font-size: 4vw;
+            margin: 0;
+          }
+        }
+
+        .product-price {
+          height: 5%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            color: #9a5f45;
+            font-size: 2vw;
+            margin: 0;
+          }
+        }
+
+        .product-link {
+          height: 10%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 0;
+
+          button {
+            background-color: #9a5f45;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 200px;
+            font-size: 1vw;
+          }
+        }
+
+        // Se mantiene oculto
+        .product-description {
+          display: none;
+        }
       }
     }
   }

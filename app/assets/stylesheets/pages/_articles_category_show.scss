@@ -1,27 +1,29 @@
 // SCSS correspondiente a article category show
+.main-card-buttons {
+
+  height: 10vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3d2c3;
+
+  a {
+    margin: 0 8px;
+    color: #e8997c;
+    font-family: "Dancing Script", serif;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 4vw;
+  }
+}
 
 .articles-category-container {
   background-color: white;
 
-  .main-card-buttons {
-    height: 10vh;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: #f3d2c3;
 
-    a {
-      margin: 0 8px;
-      color: #e8997c;
-      font-family: "Dancing Script", serif;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 4vw;
-    }
-  }
 
   .article-cards-grid {
     display: flex;

@@ -1,15 +1,11 @@
 <%# Vista mejorada para la categoría Verre con cartas de presentación de productos %>
-<%# Ultima actualizacion 02Jul25 %>
+<%# Última actualización 07Jul25 %>
 
-<%# navbar general %>
 <%= render "shared/navbar" %>
+<%= render "shared/header" %>
 
-<%# Header general %>
-<%= render 'shared/header' %>
-
-<div class="articles-category-container">
-  <%# Main general %>
-
+<div class="creations-card-container">
+  <%# Sección de navegación de categorías %>
   <div class="main-card-buttons">
     <%= link_to "Verre", category_articles_path("verre") %>
     <%= link_to '• Carton', category_articles_path('carton') %>
@@ -17,20 +13,37 @@
     <%= link_to '• Papier mâché', category_articles_path('papier_mache') %>
     <%= link_to '• Fils', category_articles_path('fils') %>
   </div>
-  <h1>Articles en Verre</h1>
 
-  <div class="article-cards-grid">
+  <%# Título principal de la categoría %>
+  <div class="creation-card-title">
+    <h2>Articles en Verre</h2>
+  </div>
+
+  <%# Grid de productos %>
+  <div class="creation-cards-section">
     <% @articles.each do |article| %>
-      <div class="product-card">
-        <div class="product-image">
+      <div class="creation-card">
+
+        <%# Imagen del producto %>
+        <div class="creation-card-img">
           <%= image_tag article.image_url, alt: article.name %>
         </div>
-        <div class="product-details">
-          <h2 class="product-name"><%= article.name %></h2>
-          <p class="product-description"><%= truncate(article.description, length: 100) %></p>
-          <p class="product-price"><%= number_to_currency(article.price, unit: "€") %></p>
-          <%= link_to "Voir l'article", article_path(article), class: "product-link" %>
+
+        <%# Título del producto %>
+        <div class="creation-card-title-article">
+          <h2><%= article.name %></h2>
         </div>
+
+        <%# Precio del producto %>
+        <div class="creation-card-price">
+          <p><%= number_to_currency(article.price, unit: "€") %></p>
+        </div>
+
+        <%# Botón para ver más %>
+        <div class="creation-card-button">
+          <%= link_to "Voir l'article", article_path(article), class: "btn" %>
+        </div>
+
       </div>
     <% end %>
   </div>

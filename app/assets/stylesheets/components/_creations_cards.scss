@@ -114,187 +114,146 @@
 
 }
 
-@media screen and (min-width: 1025px) {
-
-}
-
-@media screen  and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .creations-card-container {
-
     .creation-card-title {
-
       h2 {
-
+        font-size: 6vw;
       }
-
     }
 
     .creation-cards-section {
       flex-wrap: wrap;
 
       .creation-card {
-        margin: 8px 0;
-        width: 44%;
+        width: 45%;
+        height: 60vh;
+        margin: 8px;
 
-        // imagen posee 50% del tamaño de la tarjeta
         .creation-card-img {
+          height: 50%;
+          margin: 12px;
 
           img {
-
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
-
         }
 
-        // titulo posee 25% del tamaño de la tarjeta
         .creation-card-title-article {
-
+          height: 20%;
           h2 {
-
+            font-size: 5vw;
           }
-
         }
 
-        // descripcion precio 10% del tamaño de la tarjeta
         .creation-card-price {
-
-
+          height: 5%;
           p {
-
+            font-size: 3vw;
           }
-
         }
 
-        // boton posee 15% del tamaño de la tarjeta
         .creation-card-button {
+          height: 10%;
+          padding: 8px 0;
 
-          button {
-
+          button, .btn {
+            font-size: 2vw;
+            width: 80%;
+            max-width: 180px;
           }
         }
       }
     }
-
   }
 }
 
 @media screen and (max-width: 768px) {
   .creations-card-container {
-
     .creation-card-title {
-
       h2 {
-
+        font-size: 7vw;
       }
-
     }
 
     .creation-cards-section {
-      flex-wrap: wrap;
-
       .creation-card {
-        margin: 8px;
-        width: 44%;
+        width: 90%;
+        height: 60vh;
 
-        // imagen posee 50% del tamaño de la tarjeta
         .creation-card-img {
-
-          img {
-
-          }
-
+          height: 50%;
+          margin: 8px;
         }
 
-        // titulo posee 25% del tamaño de la tarjeta
         .creation-card-title-article {
-
+          height: 20%;
           h2 {
-            font-size: 4vh;
-
+            font-size: 5vh;
           }
-
         }
 
-        // descripcion precio 10% del tamaño de la tarjeta
         .creation-card-price {
-
-
+          height: 5%;
           p {
-            font-size: 4vh;
+            font-size: 3vh;
           }
-
         }
 
-        // boton posee 15% del tamaño de la tarjeta
         .creation-card-button {
-
-          button {
+          height: 10%;
+          button, .btn {
             font-size: 2vh;
-
+            width: 80%;
           }
         }
       }
     }
-
   }
 }
 
 @media screen and (max-width: 480px) {
   .creations-card-container {
-
     .creation-card-title {
-
       h2 {
-
+        font-size: 8vw;
       }
-
     }
 
     .creation-cards-section {
-      flex-wrap: wrap;
-
       .creation-card {
-        margin: 8px;
-        width: 44%;
+        width: 100%;
+        height: 55vh;
 
-        // imagen posee 50% del tamaño de la tarjeta
         .creation-card-img {
-
-          img {
-
-          }
-
+          height: 50%;
+          margin: 8px;
         }
 
-        // titulo posee 25% del tamaño de la tarjeta
         .creation-card-title-article {
-
+          height: 20%;
           h2 {
-            font-size: 4vh;
-
+            font-size: 5vh;
           }
-
         }
 
-        // descripcion precio 10% del tamaño de la tarjeta
         .creation-card-price {
-
-
+          height: 5%;
           p {
-            font-size: 4vh;
+            font-size: 3.5vh;
           }
-
         }
 
-        // boton posee 15% del tamaño de la tarjeta
         .creation-card-button {
-
-          button {
+          height: 10%;
+          button, .btn {
             font-size: 2vh;
-
+            width: 90%;
           }
         }
       }
     }
-
   }
 }

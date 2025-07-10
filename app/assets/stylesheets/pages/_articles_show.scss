@@ -3,7 +3,6 @@
 .articles-show-container {
   background-color: white;
   padding: 8px;
-  border: 1px solid black;
 
   .articles-show-title {
     display: flex;
@@ -20,6 +19,8 @@
     align-items: center;
     padding: 16px;
     gap: 20px;
+      border: 1px solid black;
+
 
     .articles-show-image {
       box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);

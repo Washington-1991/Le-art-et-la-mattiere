@@ -14,16 +14,17 @@
   }
 
   .articles-show-content {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 8vh;
     padding: 16px;
-    box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
     gap: 20px;
 
     .articles-show-image {
+      border: 1px solid black;
+      box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
+
 
       img {
         max-width: 50vh;

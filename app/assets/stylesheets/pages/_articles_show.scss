@@ -21,9 +21,8 @@
     gap: 20px;
 
     .articles-show-image {
-      padding: 16px;
       box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
-
+      padding: 16px;
 
       img {
         max-width: 50vh;
@@ -34,6 +33,7 @@
 
     .articles-show-details {
       box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
+      padding: 16px;
       display: flex;
       flex-direction: column;
 

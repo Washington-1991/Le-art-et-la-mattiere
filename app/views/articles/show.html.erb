@@ -4,8 +4,14 @@
 <%# Barra de navegacion general %>
 <%= render "shared/navbar" %>
 
-<%# Main general %>
-<%= render 'shared/main' %>
+<%# Sección de navegación de categorías %>
+<div class="main-card-buttons">
+  <%= link_to "Verre", category_articles_path("verre") %>
+  <%= link_to '• Carton', category_articles_path('carton') %>
+  <%= link_to '• Papier de soie', category_articles_path('papier_de_soie') %>
+  <%= link_to '• Papier mâché', category_articles_path('papier_mache') %>
+  <%= link_to '• Fils', category_articles_path('fils') %>
+</div>
 
 <%# Contenedor general %>
 <div class="articles-show-container">

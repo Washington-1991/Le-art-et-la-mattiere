@@ -13,9 +13,13 @@
     <div class="articles-show-title-card-A">
       <h1>Détails de l'Article</h1>
     </div>
-    <div class="articles-show-title-card-B">
-      <%= link_to 'Retour à la liste', articles_path, class: 'btn btn-secondary' %>
-    </div>
+
+    <% if current_user&.admin? %>
+      <div class="articles-show-title-card-B">
+        <%= link_to 'Retour à la liste', articles_path, class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+
   </div>
 
   <div class="articles-show-content">

@@ -21,7 +21,11 @@
     gap: 20px;
     border: 1px solid black;
 
-    .articles-show-image {
+    .card-A {
+      border: 1px solid black;
+      height: 100%;
+      width: 30%;
+      .articles-show-image {
       box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
       padding: 16px;
 
@@ -31,6 +35,9 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
     }
+    }
+
+
 
     .articles-show-details {
       box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);

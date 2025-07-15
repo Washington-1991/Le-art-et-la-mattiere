@@ -40,10 +40,8 @@
       <div class="articles-show-details">
         <div class="articles-show-descript">
           <h2><strong></strong> <%= @article.name %></h2>
-          <p><strong></strong> <%= @article.price %></p>
-          <p><strong></strong> <%= @article.stock %></p>
-          <p><strong></strong> <%= @article.category %></p>
           <p><strong></strong> <%= @article.description %></p>
+          <p><strong></strong> <%= @article.price %></p>
         </div>
 
       <% if current_user&.admin? %>

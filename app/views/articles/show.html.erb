@@ -44,14 +44,15 @@
           <p><strong>€</strong> <%= @article.price %></p>
         </div>
 
-      <% if current_user&.admin? %>
-        <div class="articles-show-actions">
-          <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %>
-          <%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
-        </div>
-      <% end %>
+        <% if current_user&.admin? %>
+          <div class="articles-show-actions">
+            <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %>
+            <%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
+          </div>
+        <% end %>
+          <%= button_to 'Ajouter au panier', cart_add_path(@article), method: :post, class: 'btn btn-success' %>
 
-    </div>
+      </div>
 
     </span>
 

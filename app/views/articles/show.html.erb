@@ -30,11 +30,13 @@
   </div>
 
   <div class="articles-show-content">
-    <span class="card-A"></span>
+    <span class="card-A">
+      <div class="articles-show-image">
+        <%= image_tag @article.image_url if @article.image_url.present? %>
+      </div>
+    </span>
 
-    <div class="articles-show-image">
-      <%= image_tag @article.image_url if @article.image_url.present? %>
-    </div>
+
 
     <div class="articles-show-details">
       <div class="articles-show-descript">

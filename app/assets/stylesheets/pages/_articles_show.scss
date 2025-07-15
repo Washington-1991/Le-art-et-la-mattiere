@@ -85,7 +85,23 @@
 
 // Responsive adjustments
 @media screen and (max-width: 1024px) {
+  .articles-show-content {
+    flex-direction: column;
+    align-items: center;
 
+    .card-A, .card-B {
+      width: 80%;
+      height: auto;
+    }
+
+    .card-A .articles-show-image img {
+      max-width: 60vw;
+    }
+
+    .card-B .articles-show-details {
+      height: auto;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -96,6 +112,20 @@
   .articles-show-content {
     margin: 0 3vw;
     gap: 15px;
+    flex-direction: column;
+    align-items: center;
+
+    .card-A, .card-B {
+      width: 90%;
+    }
+
+    .card-A .articles-show-image img {
+      max-width: 80vw;
+    }
+
+    .card-B .articles-show-details {
+      padding: 12px;
+    }
   }
 }
 
@@ -106,9 +136,28 @@
 
   .articles-show-content {
     padding: 8px;
-  }
+    flex-direction: column;
+    align-items: center;
 
-  .articles-show-image img {
-    max-width: 90vw;
+    .card-A, .card-B {
+      width: 100%;
+    }
+
+    .card-A .articles-show-image img {
+      max-width: 90vw;
+    }
+
+    .card-B .articles-show-details {
+      padding: 10px;
+
+      p {
+        font-size: 16px;
+      }
+
+      .btn {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+    }
   }
 }

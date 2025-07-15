@@ -38,9 +38,11 @@
       }
     }
 
+    .card-B {
+      height: 100%;
+      width: 70%;
 
-
-    .articles-show-details {
+      .articles-show-details {
       box-shadow: 4px 8px 16px 8px rgba(0, 0, 0, 0.1);
       height: 100%;
       width: 100%;
@@ -71,6 +73,10 @@
       }
 
     }
+    }
+
+
+
 
   }
 }

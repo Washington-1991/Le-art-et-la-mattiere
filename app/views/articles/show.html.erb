@@ -36,16 +36,15 @@
       </div>
     </span>
 
-
-
-    <div class="articles-show-details">
-      <div class="articles-show-descript">
-        <p><strong>Nom :</strong> <%= @article.name %></p>
-        <p><strong>Prix :</strong> <%= @article.price %></p>
-        <p><strong>Stock :</strong> <%= @article.stock %></p>
-        <p><strong>Catégorie :</strong> <%= @article.category %></p>
-        <p><strong>Description :</strong> <%= @article.description %></p>
-      </div>
+    <span class="card-B">
+      <div class="articles-show-details">
+        <div class="articles-show-descript">
+          <p><strong>Nom :</strong> <%= @article.name %></p>
+          <p><strong>Prix :</strong> <%= @article.price %></p>
+          <p><strong>Stock :</strong> <%= @article.stock %></p>
+          <p><strong>Catégorie :</strong> <%= @article.category %></p>
+          <p><strong>Description :</strong> <%= @article.description %></p>
+        </div>
 
       <% if current_user&.admin? %>
         <div class="articles-show-actions">
@@ -55,6 +54,12 @@
       <% end %>
 
     </div>
+
+    </span>
+
+
+
+
 
   </div>
 

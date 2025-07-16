@@ -1,17 +1,18 @@
 class CartItemsController < ApplicationController
   before_action :set_cart
 
-    def create
+  def create
     @cart = current_cart
     @article = Article.find(params[:article_id])
     @cart_item = @cart.cart_items.build(article: @article)
 
-      if @cart_item.save
+    if @cart_item.save
         redirect_to cart_path(@cart), notice: "Article ajouté au panier avec succès."
       else
-        redirect_to article_path(@article), alert: "Impossible d'ajouter l'article au panier."
-      end
+        redirect_to article_path(@article), alert: "Erreur lors de l'ajout de l'article au panier."
     end
+  end
+
 
 
   def destroy

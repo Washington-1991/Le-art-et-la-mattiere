@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # Cart
   resource :cart, only: [:show]
-  resources :cart_items, only: [:create, :update, :destroy]
+  resources :cart_items, only: [:create, :destroy]  # Modificado para quitar :update
   get "carts/show"  # Puedes considerar eliminar esta si ya usas resource :cart
 
   # PWA

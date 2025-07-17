@@ -1,14 +1,11 @@
 class CartItemsController < ApplicationController
   before_action :set_cart
 
-   def create
-    article = Article.find(params[:article_id])
-    cart_item = @cart.cart_items.find_or_initialize_by(article_id: article.id)
-    cart_item.quantity += 1
-    cart_item.price = article.price
-    cart_item.save
-
-    redirect_to cart_path, notice: "#{article.name} fue añadido al carrito"
+   # app/controllers/cart_items_controller.rb
+def create
+  @cart_item = current_user.cart.cart_items.create(article_id: params[:article_id])
+  redirect_to cart_path, notice: "Ajouté au panier."
+end
   end
 
   private

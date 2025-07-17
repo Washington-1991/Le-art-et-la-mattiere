@@ -32,8 +32,9 @@
       </div>
     </div>
 
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-  </div>
+    <%= link_to cart_path, class: "btn btn-outline-dark" do %>
+      <i class="fa-solid fa-cart-shopping"></i> Voir le panier
+    <% end %>  </div>
 </nav>
 
 <%# estilo del menu dropdown %>

@@ -1,12 +1,12 @@
 class CartItemsController < ApplicationController
   before_action :set_cart
 
-   # app/controllers/cart_items_controller.rb
-def create
-  @cart_item = current_user.cart.cart_items.create(article_id: params[:article_id])
-  redirect_to cart_path, notice: "Ajouté au panier."
-end
+  # app/controllers/cart_items_controller.rb
+  def create
+    @cart_item = current_user.cart.cart_items.create(article_id: params[:article_id])
+    redirect_to cart_path, notice: "Ajouté au panier."
   end
+
 
   private
 

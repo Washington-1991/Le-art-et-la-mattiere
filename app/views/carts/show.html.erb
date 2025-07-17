@@ -1,2 +1,13 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h2>Panier</h2>
+
+<% if @cart.cart_items.any? %>
+  <ul>
+    <% @cart.cart_items.each do |item| %>
+      <li>
+        <%= item.article.name %> - <%= number_to_currency(item.article.price) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Le panier est vide.</p>
+<% end %>

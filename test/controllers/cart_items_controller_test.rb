@@ -6,7 +6,7 @@ class CartItemsController < ApplicationController
     @article = Article.find(params[:article_id])
     @cart_item = @cart.cart_items.create(article: @article)
 
-    redirect_to @article, notice: "Ajouté au panier"
+    redirect_to cart_path, notice: "Ajouté au panier"
   end
 
   def destroy

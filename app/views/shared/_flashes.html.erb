@@ -5,6 +5,7 @@
     </button>
   </div>
 <% end %>
+
 <% if alert %>
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= alert %>
@@ -26,4 +27,11 @@
     <%= alert %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
+<% end %>
+
+<% if notice %>
+  <div class="alert alert-success m-2"><%= notice %></div>
+<% end %>
+<% if alert %>
+  <div class="alert alert-warning m-2"><%= alert %></div>
 <% end %>

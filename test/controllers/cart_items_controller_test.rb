@@ -3,8 +3,10 @@ class CartItemsController < ApplicationController
 
   # app/controllers/cart_items_controller.rb
   def create
-    @cart_item = current_user.cart.cart_items.create(article_id: params[:article_id])
-    redirect_to cart_path, notice: "Ajouté au panier."
+    @cart = current_cart
+    article = Article.find(params[:article_id])
+    @cart.add_article(article.id)
+    redirect_to cart_path, notice: 'Produit ajouté au panier.'
   end
 
 

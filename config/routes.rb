@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   get "admin_dashboard", to: "pages#admin_dashboard", as: :admin_dashboard
 
   # Cart
+  resources :cart_items, only: [:create]
   resource :cart, only: [:show]
-  resources :cart_items, only: [:create, :destroy]  # Modificado para quitar :update
+
   get "carts/show"  # Puedes considerar eliminar esta si ya usas resource :cart
 
   # PWA

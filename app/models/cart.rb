@@ -3,28 +3,28 @@ class Cart < ApplicationRecord
   has_many :cart_items
   has_many :articles, through: :cart_items
 
-    def add_article(article_id)
+      def add_article(article_id)
     article = Article.find(article_id)
 
     if article.stock <= 0
-      errors.add(:base, "Cet article est en rupture de stock")
+      errors.add(:base, "Stock épuisé")
       return false
     end
 
-    existing_item = cart_items.find_by(article_id: article_id)
+    transaction do
+      cart_item = cart_items.find_or_initialize_by(article_id: article.id)
+      cart_item.quantity += 1
+      cart_item.price = article.price
+      cart_item.save!
 
-    if existing_item
-      existing_item.quantity += 1
-      existing_item.save
-    else
-      cart_items.create(
-        article: article,
-        quantity: 1,
-        price: article.price
-      )
+      update(total: calculate_total)
+      article.decrement!(:stock)
     end
     true
-  end # ← ESTE end faltaba para cerrar add_article
+  rescue => e
+    errors.add(:base, e.message)
+    false
+  end
 
   def calculate_total
     cart_items.sum('quantity * price')

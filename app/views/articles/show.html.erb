@@ -49,7 +49,10 @@
                 <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %>
                 <%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
             <% end %>
-            <%= button_to 'Ajouter au panier', cart_items_path(article_id: @article.id), method: :post, class: 'button-ajouter-au-panier' %>
+            <%= form_with url: cart_items_path, method: :post do |f| %>
+              <%= hidden_field_tag :article_id, @article.id %>
+              <%= f.submit 'Ajouter au panier', class: 'button-ajouter-au-panier' %>
+            <% end %>
           </div>
 
       </div>

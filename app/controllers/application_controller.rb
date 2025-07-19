@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   private
 
   def current_cart
+    @current_cart ||= find_or_create_cart
+  end
+
+  def find_or_create_cart
     if session[:cart_id]
       Cart.find_by(id: session[:cart_id]) || create_cart
     else
@@ -18,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def create_cart
-    cart = Cart.create(user: current_user) # Asocia el carrito al usuario si existe
+    cart = Cart.create(user: current_user)
     session[:cart_id] = cart.id
     cart
   end

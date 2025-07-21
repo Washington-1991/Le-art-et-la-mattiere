@@ -1,0 +1,22 @@
+table {
+  th, td {
+    vertical-align: middle;
+    padding: 12px;
+  }
+
+  tfoot {
+    font-weight: bold;
+    background-color: #f8f9fa;
+  }
+}
+
+.alert-info {
+  font-size: 1.2rem;
+  padding: 1.5rem;
+}
+
+.btn-success {
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}

@@ -1,35 +1,45 @@
-<h2>Votre panier</h2>
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">🛒 Votre panier</h2>
 
-<% if @cart.cart_items.any? %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Article</th>
-        <th>Prix unitaire</th>
-        <th>Quantité</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% total = 0 %>
-      <% @cart.cart_items.includes(:article).each do |item| %>
-        <% subtotal = item.article.price * item.quantity %>
-        <% total += subtotal %>
-        <tr>
-          <td><%= item.article.name %></td>
-          <td><%= number_to_currency(item.article.price, unit: "€") %></td>
-          <td><%= item.quantity %></td>
-          <td><%= number_to_currency(subtotal, unit: "€") %></td>
-        </tr>
-      <% end %>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th colspan="3">Total</th>
-        <th><%= number_to_currency(total, unit: "€") %></th>
-      </tr>
-    </tfoot>
-  </table>
-<% else %>
-  <p>Votre panier est vide.</p>
-<% end %>
+  <% if @cart.cart_items.any? %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle shadow-sm rounded bg-white">
+        <thead class="table-light text-center">
+          <tr>
+            <th scope="col">Article</th>
+            <th scope="col">Prix unitaire</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <% total = 0 %>
+          <% @cart.cart_items.includes(:article).each do |item| %>
+            <% subtotal = item.article.price * item.quantity %>
+            <% total += subtotal %>
+            <tr>
+              <td class="fw-semibold"><%= item.article.name %></td>
+              <td><%= number_to_currency(item.article.price, unit: "€") %></td>
+              <td><%= item.quantity %></td>
+              <td><%= number_to_currency(subtotal, unit: "€") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot class="table-light">
+          <tr>
+            <th colspan="3" class="text-end">Total:</th>
+            <th><%= number_to_currency(total, unit: "€") %></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="text-end mt-3">
+      <%= link_to "🧾 Passer au paiement", checkout_path, class: "btn btn-success px-4 py-2" %>
+    </div>
+  <% else %>
+    <div class="alert alert-info text-center mt-4" role="alert">
+      Votre panier est vide.
+    </div>
+  <% end %>
+</div>

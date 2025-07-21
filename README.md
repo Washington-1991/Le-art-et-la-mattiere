@@ -1,6 +1,6 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
-<!-- Front -->
+<!-- FRONT -->
 <!-- Responsive ultima actualizacion 25May25 -->
 
 <!-- Admin -->
@@ -47,3 +47,6 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 <!-- Style/SCSS -->
 <!-- components -->
+
+<!-- BACK -->
+<!-- BAsket 20Jul25 -->

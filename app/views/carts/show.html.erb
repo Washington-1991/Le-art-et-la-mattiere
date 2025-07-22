@@ -1,8 +1,8 @@
 <%# Barra de navegacion general %>
-  <%= render "shared/navbar" %>
+<%= render "shared/navbar" %>
 
-  <%# Header general %>
-  <%= render 'shared/header' %>
+<%# Header general %>
+<%= render 'shared/header' %>
 
 <%# division del basket %>
 <div class="basket-container mt-4">
@@ -11,38 +11,39 @@
   <% if @cart.cart_items.any? %>
     <div class="table-responsive">
       <table class="table table-bordered table-hover align-middle shadow-sm rounded bg-white">
-  <thead class="table-light text-center">
-    <tr>
-      <th scope="col">Article</th>
-      <th scope="col">Prix unitaire</th>
-      <th scope="col">Quantité</th>
-      <th scope="col">Total</th>
-      <th scope="col">Action</th> <!-- Nueva columna -->
-    </tr>
-  </thead>
-  <tbody class="text-center">
-    <% total = 0 %>
-    <% @cart.cart_items.includes(:article).each do |item| %>
-      <% subtotal = item.article.price * item.quantity %>
-      <% total += subtotal %>
-      <tr>
-        <td class="fw-semibold"><%= item.article.name %></td>
-        <td><%= number_to_currency(item.article.price, unit: "€") %></td>
-        <td><%= item.quantity %></td>
-        <td><%= number_to_currency(subtotal, unit: "€") %></td>
-        <td>
-          <%= button_to "Supprimer", cart_item_path(item),
-              method: :delete,
-              data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" },
-              class: "btn btn-danger btn-sm supprimer-btn" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-
+        <thead class="table-light text-center">
+          <tr>
+            <th scope="col">Article</th>
+            <th scope="col">Prix unitaire</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <% total = 0 %>
+          <% @cart.cart_items.includes(:article).each do |item| %>
+            <% subtotal = item.article.price * item.quantity %>
+            <% total += subtotal %>
+            <tr>
+              <td class="fw-semibold"><%= item.article.name %></td>
+              <td><%= number_to_currency(item.article.price, unit: "€") %></td>
+              <td><%= item.quantity %></td>
+              <td><%= number_to_currency(subtotal, unit: "€") %></td>
+              <td>
+                <%= button_to "Supprimer", cart_item_path(item),
+                    method: :delete,
+                    data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" },
+                    class: "btn btn-danger btn-sm supprimer-btn" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
 
     <div class="text-end mt-3">
+      <p class="fw-bold">Total: <%= number_to_currency(total, unit: "€") %></p>
       <%# <%= link_to "🧾 Passer au paiement", checkout_path, class: "btn btn-success px-4 py-2" %>
     </div>
   <% else %>
@@ -53,4 +54,4 @@
 </div>
 
 <%# Business cards %>
-  <%= render 'shared/business_cards' %>
+<%= render 'shared/business_cards' %>

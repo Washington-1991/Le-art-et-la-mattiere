@@ -27,7 +27,6 @@
       text-decoration: none;
       margin: 0 8px;
     }
-
   }
 
   .navbar-right-card {
@@ -44,8 +43,26 @@
       letter-spacing: 1px;
     }
 
+    .cart-link {
+      margin: 0 8px;
+      color: #e8997c;
+      font-family: "Amatic SC", Sans-serif;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+
+      i {
+        transition: transform 0.2s ease;
+      }
+
+      &:hover i {
+        transform: scale(1.2);
+      }
+    }
   }
 }
+
 
 @media screen and (min-width: 1025px) {
 

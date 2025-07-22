@@ -104,6 +104,21 @@
   }
 }
 
+.supprimer-btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  background-color: #e05d5d;
+  border: none;
+  color: white;
+  font-family: "Dancing Script", serif;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #cc4949;
+  }
+}
+
 // Responsive adjustments
 
 @media screen and (max-width: 1024px) {

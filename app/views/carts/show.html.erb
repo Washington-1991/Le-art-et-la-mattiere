@@ -31,10 +31,9 @@
               <td><%= item.quantity %></td>
               <td><%= number_to_currency(subtotal, unit: "€") %></td>
               <td>
-                <%= button_to "Supprimer", cart_item_path(item),
-                    method: :delete,
-                    data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" },
-                    class: "btn btn-danger btn-sm supprimer-btn" %>
+                <%= form_with url: cart_item_path(item), method: :delete, local: true do %>
+                  <%= submit_tag "Supprimer", class: "btn btn-danger btn-sm supprimer-btn", data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" } %>
+                <% end %>
               </td>
             </tr>
           <% end %>

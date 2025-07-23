@@ -7,7 +7,7 @@ class CartItemsController < ApplicationController
     if @cart.add_article(@article.id)
       redirect_to cart_path, notice: 'Produit ajouté au panier.'
     else
-      redirect_to @article, alert: "Impossible d'ajouter l'article au panier"
+      redirect_to @article, alert: "Impossible d'ajouter l'article au panier: #{@cart.errors.full_messages.join(', ')}"
     end
   end
 

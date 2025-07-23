@@ -8,7 +8,10 @@
 <div class="basket-container mt-4">
   <h2 class="mb-4 text-center">🛒 Votre panier</h2>
 
-  <% if @cart.cart_items.any? %>
+  <%# First, ensure we're working with the current cart (single cart) %>
+  <% current_cart = @cart.is_a?(ActiveRecord::Associations::CollectionProxy) ? @cart.last : @cart %>
+
+  <% if current_cart&.cart_items&.any? %>
     <div class="table-responsive">
       <table class="table table-bordered table-hover align-middle shadow-sm rounded bg-white">
         <thead class="table-light text-center">
@@ -22,7 +25,7 @@
         </thead>
         <tbody class="text-center">
           <% total = 0 %>
-          <% @cart.cart_items.includes(:article).each do |item| %>
+          <% current_cart.cart_items.includes(:article).each do |item| %>
             <% subtotal = item.article.price * item.quantity %>
             <% total += subtotal %>
             <tr>

@@ -4,6 +4,7 @@ class Cart < ApplicationRecord
   has_many :articles, through: :cart_items
 
   def add_article(article_id)
+    Rails.logger.info "Attempting to add article #{article_id} to cart #{id}"
     article = Article.find(article_id)
 
     if article.stock <= 0
@@ -17,6 +18,8 @@ class Cart < ApplicationRecord
       cart_item.quantity += 1
       cart_item.price = article.price
 
+      Rails.logger.info "Cart item: #{cart_item.inspect}"
+
       unless cart_item.save
         errors.add(:base, cart_item.errors.full_messages.join(", "))
         raise ActiveRecord::Rollback
@@ -25,6 +28,8 @@ class Cart < ApplicationRecord
       update(total: calculate_total)
       article.decrement!(:stock)
     end
+
+    Rails.logger.info "Transaction completed successfully" if true
     true
   rescue => e
     errors.add(:base, e.message)

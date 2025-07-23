@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "cart_items/create"
-  get "cart_items/destroy"
   # Root
   root to: "pages#home"  # ESTA ES LA CORRECTA
   get '/home', to: 'pages#home', as: :home

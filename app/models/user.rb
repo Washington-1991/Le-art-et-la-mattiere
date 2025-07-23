@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Asociaciones
-  has_many :carts, dependent: :destroy
+  has_many :cart, dependent: :destroy
 
   # Constantes para la seguridad
   VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP

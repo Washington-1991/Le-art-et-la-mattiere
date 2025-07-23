@@ -1,11 +1,15 @@
 class CartItemsController < ApplicationController
   before_action :set_cart
 
-    def create
-    # ... tu lógica actual para agregar al carrito ...
-    respond_to do |format|
-      format.html { redirect_to request.referer, notice: 'Artículo agregado al carrito' }
-      format.js   # Esto permitiría respuestas AJAX si lo necesitas
+  def create
+    @cart = current_user.cart || Cart.create(user: current_user)
+    article = Article.find(params[:article_id])
+    @cart_item = CartItem.new(cart: @cart, article: article)
+
+    if @cart_item.save
+      redirect_to cart_path(@cart), notice: "Article ajouté au panier."
+    else
+      redirect_to article_path(article), alert: "Erreur lors de l'ajout au panier."
     end
   end
 

@@ -4,39 +4,41 @@
 <%# Header general %>
 <%= render 'shared/header' %>
 
-<%# division del basket %>
+<%# Mostrar mensajes flash %>
+<%= render 'shared/flash' %>
+
 <div class="basket-container mt-4">
   <h2 class="mb-4 text-center">🛒 Votre panier</h2>
 
-  <%# First, ensure we're working with the current cart (single cart) %>
-  <% current_cart = @cart.is_a?(ActiveRecord::Associations::CollectionProxy) ? @cart.last : @cart %>
-
-  <% if current_cart&.cart_items&.any? %>
+  <% if @cart.cart_items.any? %>
     <div class="table-responsive">
       <table class="table table-bordered table-hover align-middle shadow-sm rounded bg-white">
         <thead class="table-light text-center">
           <tr>
-            <th scope="col">Article</th>
-            <th scope="col">Prix unitaire</th>
-            <th scope="col">Quantité</th>
-            <th scope="col">Total</th>
-            <th scope="col">Action</th>
+            <th>Article</th>
+            <th>Prix unitaire</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody class="text-center">
-          <% total = 0 %>
-          <% current_cart.cart_items.includes(:article).each do |item| %>
-            <% subtotal = item.article.price * item.quantity %>
-            <% total += subtotal %>
+          <% @cart.cart_items.includes(:article).each do |item| %>
             <tr>
               <td class="fw-semibold"><%= item.article.name %></td>
               <td><%= number_to_currency(item.article.price, unit: "€") %></td>
-              <td><%= item.quantity %></td>
-              <td><%= number_to_currency(subtotal, unit: "€") %></td>
               <td>
-                <%= form_with url: cart_item_path(item), method: :delete, local: true do %>
-                  <%= submit_tag "Supprimer", class: "btn btn-danger btn-sm supprimer-btn", data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" } %>
+                <%= form_with model: [@cart, item], method: :patch do |f| %>
+                  <%= f.number_field :quantity, min: 1, class: "form-control d-inline-block", style: "width: 60px" %>
+                  <%= f.submit "Mettre à jour", class: "btn btn-sm btn-outline-primary ms-2" %>
                 <% end %>
+              </td>
+              <td><%= number_to_currency(item.total_price, unit: "€") %></td>
+              <td>
+                <%= button_to "Supprimer", cart_item_path(item),
+                    method: :delete,
+                    class: "btn btn-danger btn-sm",
+                    form: { data: { turbo_confirm: "Êtes-vous sûr ?" } } %>
               </td>
             </tr>
           <% end %>
@@ -45,15 +47,15 @@
     </div>
 
     <div class="text-end mt-3">
-      <p class="fw-bold">Total: <%= number_to_currency(total, unit: "€") %></p>
-      <%# <%= link_to "🧾 Passer au paiement", checkout_path, class: "btn btn-success px-4 py-2" %>
+      <h5>Total: <%= number_to_currency(@cart.total_price, unit: "€") %></h5>
+      <%= link_to "🧾 Passer au paiement", "#", class: "btn btn-success px-4 py-2 mt-3" %>
     </div>
   <% else %>
     <div class="alert alert-info text-center mt-4" role="alert">
       Votre panier est vide.
     </div>
+    <%= link_to "Continuer vos achats", articles_path, class: "btn btn-primary mt-3" %>
   <% end %>
 </div>
 
-<%# Business cards %>
 <%= render 'shared/business_cards' %>

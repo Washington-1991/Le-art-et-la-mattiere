@@ -28,8 +28,8 @@
               <td class="fw-semibold"><%= item.article.name %></td>
               <td><%= number_to_currency(item.article.price, unit: "€") %></td>
               <td>
-                <%= form_with model: [@cart, item], method: :patch do |f| %>
-                  <%= f.number_field :quantity, min: 1, class: "form-control d-inline-block", style: "width: 60px" %>
+                <%= form_with url: cart_item_path(item), method: :patch do |f| %>
+                  <%= f.number_field :quantity, min: 1, class: "form-control d-inline-block", style: "width: 60px", value: item.quantity %>
                   <%= f.submit "Mettre à jour", class: "btn btn-sm btn-outline-primary ms-2" %>
                 <% end %>
               </td>

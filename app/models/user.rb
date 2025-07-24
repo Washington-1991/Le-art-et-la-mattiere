@@ -1,15 +1,14 @@
 class User < ApplicationRecord
-  # Elimina has_secure_password
-  # has_secure_password
-
-  # Devise para manejar la autenticación
+  # Configuración de Devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # Asociaciones
-  has_many :cart, dependent: :destroy
+  # Asociaciones corregidas
+  has_many :carts, dependent: :destroy
+  has_one :current_cart, -> { order(created_at: :desc) }, class_name: 'Cart'
+  has_many :cart_items, through: :carts
 
-  # Constantes para la seguridad
+  # Constantes para validaciones
   VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
   PASSWORD_FORMAT = /\A
     (?=.*\d)           # Debe contener al menos un número
@@ -18,7 +17,7 @@ class User < ApplicationRecord
     (?=.*[[:^alnum:]]) # Debe contener al menos un carácter especial
   /x
 
-  # Atributos para el control de intentos fallidos
+  # Atributos para seguridad
   attribute :failed_attempts, :integer, default: 0
   attribute :locked_at, :datetime
   attribute :last_activity_at, :datetime
@@ -38,17 +37,15 @@ class User < ApplicationRecord
   # Callbacks
   before_save :downcase_email
   before_create :set_initial_activity
+  after_create :create_initial_cart
 
   # Métodos de seguridad
   def lock_access!
-    self.locked_at = Time.current
-    save
+    update(locked_at: Time.current)
   end
 
   def unlock_access!
-    self.locked_at = nil
-    self.failed_attempts = 0
-    save
+    update(locked_at: nil, failed_attempts: 0)
   end
 
   def access_locked?
@@ -56,27 +53,31 @@ class User < ApplicationRecord
   end
 
   def increment_failed_attempts
-    self.failed_attempts += 1
-    if failed_attempts >= 5
-      lock_access!
-    else
-      save
-    end
+    update(failed_attempts: failed_attempts + 1)
+    lock_access! if failed_attempts >= 5
   end
 
   def reset_failed_attempts
-    update_columns(failed_attempts: 0)
+    update(failed_attempts: 0)
   end
 
   def update_activity
-    update_column(:last_activity_at, Time.current)
+    update(last_activity_at: Time.current)
   end
 
   def inactive?
-    last_activity_at < 30.days.ago
+    last_activity_at && last_activity_at < 30.days.ago
   end
 
-  # Método para verificar si el usuario es administrador
+  # Métodos del carrito
+  def active_cart
+    current_cart || create_cart
+  end
+
+  def cart_total
+    current_cart&.total_price || 0
+  end
+
   def admin?
     role == "admin"
   end
@@ -93,5 +94,9 @@ class User < ApplicationRecord
 
   def set_initial_activity
     self.last_activity_at = Time.current
+  end
+
+  def create_initial_cart
+    carts.create unless current_cart
   end
 end

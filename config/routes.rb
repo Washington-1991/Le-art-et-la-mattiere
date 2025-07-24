@@ -15,13 +15,23 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :products
+    resources :articles, only: [:index, :edit, :update, :destroy] # Añadido para gestión completa
   end
   get "/admin", to: "admin#index"
   get "admin_dashboard", to: "pages#admin_dashboard", as: :admin_dashboard
 
-  # Carrito
-  resources :cart_items, only: [:create, :update, :destroy]  # <- se añadió :update aquí
-  resource :cart, only: [:show]  # singular porque cada usuario tiene un solo carrito
+  # Carrito - Configuración optimizada
+  resources :cart_items, only: [:create, :update, :destroy] do
+    collection do
+      delete 'clear', to: 'cart_items#clear' # Ruta opcional para vaciar el carrito
+    end
+  end
+
+  resource :cart, only: [:show] do # Singular resource para el carrito
+    member do
+      get 'checkout', to: 'carts#checkout', as: :checkout # Ruta para el proceso de pago
+    end
+  end
 
   # PWA
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
@@ -30,4 +40,8 @@ Rails.application.routes.draw do
   # Páginas varias
   get "presentation", to: "pages#presentation"
   get "up" => "rails/health#show", as: :rails_health_check
+
+  # Manejo de errores (opcional pero recomendado)
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 end

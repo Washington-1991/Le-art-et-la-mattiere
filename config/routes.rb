@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Root
-  root to: "pages#home"  # ESTA ES LA CORRECTA
+  root to: "pages#home"
   get '/home', to: 'pages#home', as: :home
 
   # Articles
@@ -19,11 +18,12 @@ Rails.application.routes.draw do
   get "/admin", to: "admin#index"
   get "admin_dashboard", to: "pages#admin_dashboard", as: :admin_dashboard
 
-  # Cart
+  # Cart - Simplificado y mejorado
   resources :cart_items, only: [:create, :destroy]
-  resource :cart, only: [:show]
+  resource :cart, only: [:show]  # Esto crea cart_path (singular)
 
-  get "carts/show"  # Puedes considerar eliminar esta si ya usas resource :cart
+  # Elimina esta línea redundante:
+  # get "carts/show"
 
   # PWA
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

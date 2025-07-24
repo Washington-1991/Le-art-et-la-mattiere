@@ -53,8 +53,16 @@ class Cart < ApplicationRecord
   private
 
   def valid_article?(article)
-    errors.add(:base, "Article inexistant") && return false if article.nil?
-    errors.add(:base, "Stock épuisé pour #{article.name}") && return false if article.stock <= 0
+    if article.nil?
+      errors.add(:base, "Article inexistant")
+      return false
+    end
+
+    if article.stock <= 0
+      errors.add(:base, "Stock épuisé pour #{article.name}")
+      return false
+    end
+
     true
   end
 

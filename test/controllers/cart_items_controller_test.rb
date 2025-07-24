@@ -19,6 +19,15 @@ class CartItemsController < ApplicationController
     end
   end
 
+  def update
+    @cart_item = @cart.cart_items.find(params[:id])
+    if @cart_item.update(cart_item_params)
+      redirect_to cart_path, notice: "Quantité mise à jour."
+    else
+      redirect_to cart_path, alert: "Erreur lors de la mise à jour de la quantité."
+    end
+  end
+
   def destroy
     @cart_item = @cart.cart_items.find(params[:id])
     @cart_item.destroy
@@ -29,5 +38,9 @@ class CartItemsController < ApplicationController
 
   def set_cart
     @cart = current_user.cart || current_user.create_cart
+  end
+
+  def cart_item_params
+    params.require(:cart_item).permit(:quantity)
   end
 end

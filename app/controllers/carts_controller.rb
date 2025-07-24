@@ -23,6 +23,6 @@ class CartsController < ApplicationController
 
   def set_current_cart
     # Obtiene el carrito más reciente o crea uno nuevo
-    @current_cart = current_user.carts.order(created_at: :desc).first || current_user.carts.create
+    @current_cart = current_user.cart.order(created_at: :desc).first || current_user.carts.create
   end
 end

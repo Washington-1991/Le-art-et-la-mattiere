@@ -3,10 +3,7 @@ class Cart < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :articles, through: :cart_items
 
-  # Estados del carrito (versión compatible)
-  enum status: [:active, :completed, :abandoned], default: :active
-
-  # Resto del código permanece igual...
+  # Método para añadir artículos (sin cambios)
   def add_article(article_id)
     article = Article.lock.find_by(id: article_id)
 
@@ -32,5 +29,6 @@ class Cart < ApplicationRecord
     false
   end
 
-  # ... (resto de los métodos permanecen igual)
+  # Resto de los métodos permanecen igual...
+  # (Elimina el método complete! y cualquier referencia a status)
 end

@@ -10,7 +10,7 @@
 <div class="basket-container mt-4">
   <h2 class="mb-4 text-center">🛒 Votre panier</h2>
 
-  <% if @cart.cart_items.any? %>
+  <% if @current_cart.cart_items.any? %>
     <div class="table-responsive">
       <table class="table table-bordered table-hover align-middle shadow-sm rounded bg-white">
         <thead class="table-light text-center">
@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          <% @cart.cart_items.includes(:article).each do |item| %>
+          <% @current_cart.cart_items.includes(:article).each do |item| %>
             <tr id="<%= dom_id(item) %>">
               <td class="fw-semibold"><%= item.article.name %></td>
               <td><%= number_to_currency(item.article.price, unit: "€") %></td>
@@ -37,23 +37,13 @@
                         value: item.quantity %>
                   <%= f.submit "Mettre à jour", class: "btn btn-sm btn-outline-primary ms-2" %>
                 <% end %>
-                <% if item.errors[:quantity].any? %>
-                  <div class="text-danger small mt-1">
-                    <%= item.errors[:quantity].join(", ") %>
-                  </div>
-                <% end %>
               </td>
               <td><%= number_to_currency(item.total_price, unit: "€") %></td>
               <td>
                 <%= button_to "Supprimer", cart_item_path(item),
                     method: :delete,
                     class: "btn btn-danger btn-sm",
-                    form: {
-                      data: {
-                        turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{item.article.name} ?",
-                        turbo_frame: "_top"
-                      }
-                    } %>
+                    form: { data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{item.article.name} ?" } } %>
               </td>
             </tr>
           <% end %>
@@ -62,8 +52,8 @@
     </div>
 
     <div class="text-end mt-3">
-      <h5 id="cart_total">Total: <%= number_to_currency(@cart.total_price, unit: "€") %></h5>
-      <%= link_to "🧾 Passer au paiement", cart_checkout_path, class: "btn btn-success px-4 py-2 mt-3" %>
+      <h5 id="cart_total">Total: <%= number_to_currency(@current_cart.total_price, unit: "€") %></h5>
+      <%= link_to "🧾 Passer au paiement", checkout_cart_path, class: "btn btn-success px-4 py-2 mt-3" %>
     </div>
   <% else %>
     <div class="alert alert-info text-center mt-4" role="alert">

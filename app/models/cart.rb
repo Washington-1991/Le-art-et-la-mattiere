@@ -36,6 +36,10 @@ class Cart < ApplicationRecord
     false
   end
 
+  def total_price
+    cart_items.sum { |item| item.article.price * item.quantity }
+  end
+
   def calculate_total
     cart_items.sum('quantity * price')
   end

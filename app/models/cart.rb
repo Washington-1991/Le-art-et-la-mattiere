@@ -1,34 +1,18 @@
-class Cart < ApplicationRecord
-  belongs_to :user
-  has_many :cart_items, dependent: :destroy
-  has_many :articles, through: :cart_items
+class CartsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_current_cart
 
-  # Método para añadir artículos (sin cambios)
-  def add_article(article_id)
-    article = Article.lock.find_by(id: article_id)
-
-    unless valid_article?(article)
-      Rails.logger.error "Article invalid: #{errors.full_messages}"
-      return false
+  def show
+    # Lógica básica sin estado
+    respond_to do |format|
+      format.html
+      format.turbo_stream
     end
-
-    ActiveRecord::Base.transaction do
-      cart_item = find_or_build_cart_item(article)
-
-      unless save_cart_item(cart_item)
-        Rails.logger.error "Failed to save cart item: #{errors.full_messages}"
-        raise ActiveRecord::Rollback
-      end
-
-      update_totals(article)
-    end
-
-    true
-  rescue ActiveRecord::RecordInvalid => e
-    log_error(e)
-    false
   end
 
-  # Resto de los métodos permanecen igual...
-  # (Elimina el método complete! y cualquier referencia a status)
+  private
+
+  def set_current_cart
+    @current_cart = current_user.carts.order(created_at: :desc).first || current_user.carts.create
+  end
 end

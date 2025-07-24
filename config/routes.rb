@@ -20,18 +20,14 @@ Rails.application.routes.draw do
   get "/admin", to: "admin#index"
   get "admin_dashboard", to: "pages#admin_dashboard", as: :admin_dashboard
 
-  # Carrito - Configuración optimizada
+  # Carrito - Configuración simplificada
   resources :cart_items, only: [:create, :update, :destroy] do
     collection do
       delete 'clear', to: 'cart_items#clear' # Ruta para vaciar el carrito
     end
   end
 
-  resource :cart, only: [:show] do # Singular resource
-    member do
-      get 'checkout', to: 'carts#checkout', as: :checkout # checkout_cart_path
-    end
-  end
+  resource :cart, only: [:show] # Singular resource sin rutas de checkout
 
   # PWA
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
@@ -44,7 +40,4 @@ Rails.application.routes.draw do
   # Manejo de errores
   match '/404', to: 'errors#not_found', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
-
-  # Ruta adicional para checkout simple (opcional)
-  get '/checkout', to: 'carts#checkout', as: :checkout # checkout_path
 end

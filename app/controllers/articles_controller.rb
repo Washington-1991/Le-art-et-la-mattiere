@@ -2,14 +2,15 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
-  # Si tus categorías reales son estas, mantenlas aquí:
-  CATEGORIES = %w[verre bois metal papier textile papier_de_soie papier_mache]
+  # Si tus categorías reales son estas:
+  CATEGORIES = %w[verre bois metal papier textile papier_de_soie papier_mache fils]
 
   def index
     @articles = Article.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @article = Article.new
@@ -24,7 +25,8 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @article.update(article_params)
@@ -62,19 +64,5 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body, :category, :price, :image)
-  end
-end
-
-
-
-  private
-
-  def set_article
-    @article = Article.find_by(id: params[:id])
-    redirect_to articles_path, alert: "Article non trouvé" if @article.nil?
-  end
-
-  def article_params
-    params.require(:article).permit(:name, :description, :price, :stock, :category, :image_url)
   end
 end

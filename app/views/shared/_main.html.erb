@@ -1,44 +1,50 @@
-<%# HTML correspondiente al main %>
-<%# Ultima actualizacion 25May25 %>
+<%# app/views/shared/_main.html.erb %>
+<%# Última actualización: 25 May 2025 %>
+
+<%# Fuentes externas %>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 
-<%# Division general %>
 <main class="main">
 
-  <%# Seccion de botones %>
+  <%# — Sección de botones de filtro por categoría — %>
   <div class="main-card-buttons">
-    <%= link_to "Verre", category_articles_path("verre") %>
-    <%= link_to '• Carton', category_articles_path('carton') %>
-    <%= link_to '• Papier de soie', category_articles_path('papier_de_soie') %>
-    <%= link_to '• Papier mâché', category_articles_path('papier_mache') %>
-    <%= link_to '• Fils', category_articles_path('fils') %>
+    <% ArticlesController::CATEGORIES.each do |cat| %>
+      <% label = cat.tr('_', ' ').split.map(&:capitalize).join(' ') %>
+      <%= link_to label,
+                  category_articles_path(cat),
+                  class: "btn" %>
+    <% end %>
   </div>
 
-  <%# imagenes %>
+  <%# — Galería principal — %>
   <div class="main-card-container">
     <div class="main-card-left">
-      <a href="">
-        <img src="https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360012/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.24.31_1_jo0hcu.jpg" alt="">
-      </a>
+      <%= link_to "#" do %>
+        <%= image_tag "https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360012/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.24.31_1_jo0hcu.jpg",
+                      alt: "Detalle artístico principal",
+                      class: "main-image" %>
+      <% end %>
     </div>
+
     <div class="main-card-right">
       <div class="main-card-right-top">
-        <a href="">
-          <img src="https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360012/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.24.31_2_xste6e.jpg" alt="">
-        </a>
+        <%= link_to "#" do %>
+          <%= image_tag "https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360012/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.24.31_2_xste6e.jpg",
+                        alt: "Detalle artístico superior",
+                        class: "side-image" %>
+        <% end %>
       </div>
 
       <div class="main-card-right-bottom">
-        <a href="">
-          <img src="https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360005/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.22.55_ajaj2u.jpg" alt="">
-        </a>
-
+        <%= link_to "#" do %>
+          <%= image_tag "https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360005/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.22.55_ajaj2u.jpg",
+                        alt: "Detalle artístico inferior",
+                        class: "side-image" %>
+        <% end %>
       </div>
-
     </div>
-
   </div>
 
 </main>

@@ -1,33 +1,38 @@
-<%# HTML correspondiente a la navbar %>
-<%# Ultima actualizacion 25May25 %>
+<%# HTML correspondiente a la Navbar %>
+<%# Última actualización: 25 May 2025 %>
 
-<%# Contenedor general %>
 <nav class="navbar">
-
-  <%# barra de izquierda %>
   <div class="navbar-left-card">
-    <%# <h2>Livraison offerte des 65€ | Paiment securise </h2> %>
-    <a href="">Présentation</a>
-    <a href="">Contact</a>
+    <!-- <h2>Livraison offerte dès 65€ | Paiement sécurisé</h2> -->
+    <a href="#">Présentation</a>
+    <a href="#">Contact</a>
   </div>
 
-  <%# barra de la derecha %>
   <div class="navbar-right-card">
-    <a href="https://www.instagram.com/lart_et_la_matiere1/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.instagram.com/lart_et_la_matiere1/"
+       target="_blank"
+       rel="noopener">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
 
     <div class="user-menu-container">
-      <a href="#" class="user-icon" id="userMenuButton"><i class="fa-regular fa-user"></i></a>
+      <a href="#" class="user-icon" id="userMenuButton">
+        <i class="fa-regular fa-user"></i>
+      </a>
       <div class="user-menu-dropdown" id="userMenuDropdown">
-        <% if user_signed_in? && current_user.admin? %>
-          <%= link_to "Admin Dashboard", admin_dashboard_path %>
-        <% end %>
-
         <% if user_signed_in? %>
-          <%= link_to "Mon profil", user_path(current_user) %>
-          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+          <% if current_user.admin? %>
+            <%= link_to "Admin Dashboard", admin_dashboard_path, class: "dropdown-item" %>
+          <% end %>
+          <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Se déconnecter",
+                      destroy_user_session_path,
+                      method: :delete,
+                      data: { turbo_method: :delete },
+                      class: "dropdown-item" %>
         <% else %>
-          <%= link_to "Se connecter", new_user_session_path %>
-          <%= link_to "S'inscrire", new_user_registration_path %>
+          <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
+          <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
         <% end %>
       </div>
     </div>
@@ -35,10 +40,9 @@
     <%= link_to cart_path, class: "cart-link" do %>
       <i class="fa-solid fa-cart-shopping"></i>
     <% end %>
- </div>
+  </div>
 </nav>
 
-<%# estilo del menu dropdown %>
 <style>
   .user-menu-container {
     position: relative;
@@ -49,63 +53,58 @@
     display: none;
     position: absolute;
     right: 0;
-    background-color: white;
+    background-color: #fff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-radius: 4px;
-    padding: 10px 0;
+    padding: 8px 0;
+    z-index: 1000;
   }
 
-  .user-menu-dropdown a {
-    color: black;
+  .user-menu-dropdown .dropdown-item {
+    color: #333;
     padding: 8px 16px;
     text-decoration: none;
     display: block;
-    text-align: left;
   }
 
-  .user-menu-dropdown a:hover {
+  .user-menu-dropdown .dropdown-item:hover {
     background-color: #f1f1f1;
   }
 
-  .user-menu-container:hover .user-menu-dropdown {
+  .user-menu-container:hover .user-menu-dropdown,
+  .user-menu-container .show-dropdown {
     display: block;
   }
 </style>
 
-<%# JavaScript del menu dropdown %>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const userMenuButton = document.getElementById('userMenuButton');
-    const userMenuDropdown = document.getElementById('userMenuDropdown');
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('userMenuButton');
+    const dropdown = document.getElementById('userMenuDropdown');
 
-    userMenuButton.addEventListener('click', function(e) {
+    btn.addEventListener('click', e => {
       e.preventDefault();
-      userMenuDropdown.style.display = userMenuDropdown.style.display === 'block' ? 'none' : 'block';
+      dropdown.classList.toggle('show-dropdown');
     });
 
-    // Cerrar el menú al hacer clic fuera de él
-    document.addEventListener('click', function(e) {
-      if (!userMenuButton.contains(e.target) && !userMenuDropdown.contains(e.target)) {
-        userMenuDropdown.style.display = 'none';
+    document.addEventListener('click', e => {
+      if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('show-dropdown');
       }
     });
 
-    // Interceptar el cierre de sesión y enviarlo como DELETE
-    const logoutLink = document.querySelector('a[href="<%= destroy_user_session_path %>"]');
+    const logoutLink = document.querySelector('a[data-method="delete"]');
     if (logoutLink) {
-      logoutLink.addEventListener('click', function(e) {
+      logoutLink.addEventListener('click', e => {
         e.preventDefault();
-        fetch(this.href, {
+        fetch(logoutLink.href, {
           method: 'DELETE',
           headers: {
             'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
           }
-        }).then(response => {
-          if (response.ok) {
-            window.location.href = '/'; // Redirige a la home después de cerrar sesión
-          }
+        }).then(resp => {
+          if (resp.ok) window.location.href = '/';
         });
       });
     }

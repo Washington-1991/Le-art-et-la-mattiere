@@ -1,5 +1,9 @@
+# app/controllers/articles_controller.rb
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+
+  # Si tus categorías reales son estas, mantenlas aquí:
+  CATEGORIES = %w[verre bois metal papier textile papier_de_soie papier_mache]
 
   def index
     @articles = Article.all
@@ -38,9 +42,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # ✅ Vista por categoría
-  CATEGORIES = %w[verre bois metal papier textile] # Ajusta según tus categorías reales
-
+  # GET /articles/category/:category
   def category
     @category = params[:category].downcase
 
@@ -49,13 +51,19 @@ class ArticlesController < ApplicationController
     end
 
     @articles = Article.where('LOWER(category) = ?', @category)
-
-    if lookup_context.template_exists?(@category, 'articles')
-      render @category
-    else
-      render plain: "Page pour la catégorie non trouvée", status: :not_found
-    end
+    render :index
   end
+
+  private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :body, :category, :price, :image)
+  end
+end
 
 
 

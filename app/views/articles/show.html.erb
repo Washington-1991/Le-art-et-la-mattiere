@@ -67,3 +67,45 @@
   <%= render 'shared/business_cards' %>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const forms = document.querySelectorAll('.add-to-cart-form');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const button = this.querySelector('input[type="submit"]');
+
+      // Guardar estado original
+      const originalText = button.value;
+      const originalClass = button.className;
+
+      // Cambiar apariencia del botón
+      button.value = 'Ajouté';
+      button.className = originalClass + ' ajoute';
+      button.disabled = true;
+
+      // Enviar formulario con AJAX
+      fetch(this.action, {
+        method: this.method,
+        body: new FormData(this),
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        }
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Error en la solicitud');
+        // Opcional: Actualizar el carrito aquí si es necesario
+      })
+      .catch(error => {
+        // Revertir cambios en caso de error
+        button.value = originalText;
+        button.className = originalClass;
+        button.disabled = false;
+        alert('Error al agregar al carrito');
+      });
+    });
+  });
+});
+</script>

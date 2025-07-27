@@ -1,4 +1,3 @@
-# config/routes.rb
 Rails.application.routes.draw do
   root "pages#home"
   get '/home', to: 'pages#home'
@@ -8,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :articles do
     collection do
-      # Ruta para filtrar por categoría: /articles/category/verre
       get 'category/:category', action: :category, as: :category
     end
   end
@@ -26,9 +24,11 @@ Rails.application.routes.draw do
     get :checkout, on: :member
   end
 
-  resources :cart_items, only: [:create, :update, :destroy] do
-    collection { delete 'clear', to: 'cart_items#clear' }
-  end
+  # Rutas principales primero
+  resources :cart_items, only: [:create, :update, :destroy]
+
+  # Ruta clear separada para evitar conflictos
+  delete 'cart_items/clear', to: 'cart_items#clear', as: :clear_cart_items
 
   get "presentation",   to: "pages#presentation"
   get "up",             to: "rails/health#show"

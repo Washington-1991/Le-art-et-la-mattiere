@@ -23,40 +23,7 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          <% @current_cart.cart_items.includes(:article).each do |item| %>
-            <tr id="<%= dom_id(item) %>">
-              <td class="fw-semibold"><%= item.article.name %></td>
-              <td><%= number_to_currency(item.article.price, unit: "€") %></td>
-              <td>
-                <%= form_with model: item, url: cart_item_path(item), method: :patch, data: { turbo_frame: "_top" } do |f| %>
-                  <%= f.number_field :quantity,
-                        min: 1,
-                        max: item.article.stock + item.quantity,
-                        class: "form-control d-inline-block",
-                        style: "width: 60px",
-                        value: item.quantity %>
-                  <%= f.submit "Mettre à jour", class: "btn btn-sm btn-outline-primary ms-2" %>
-                <% end %>
-                <% if item.errors[:quantity].any? %>
-                  <div class="text-danger small mt-1">
-                    <%= item.errors[:quantity].join(", ") %>
-                  </div>
-                <% end %>
-              </td>
-              <td><%= number_to_currency(item.total_price, unit: "€") %></td>
-              <td>
-                <%= button_to "Supprimer", cart_item_path(item),
-                    method: :delete,
-                    class: "btn btn-danger btn-sm",
-                    form: {
-                      data: {
-                        turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{item.article.name} ?",
-                        turbo_frame: "_top"
-                      }
-                    } %>
-              </td>
-            </tr>
-          <% end %>
+          <%= render partial: 'carts/cart_item', collection: @current_cart.cart_items.includes(:article), as: :item %>
         </tbody>
       </table>
     </div>

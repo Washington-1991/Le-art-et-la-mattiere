@@ -10,12 +10,11 @@
 
   <%# — Sección de botones de filtro por categoría — %>
   <div class="main-card-buttons">
-    <% ArticlesController::CATEGORIES.each do |cat| %>
-      <% label = cat.tr('_', ' ').split.map(&:capitalize).join(' ') %>
-      <%= link_to label,
-                  category_articles_path(cat),
-                  class: "btn" %>
-    <% end %>
+    <%= link_to "Verre", category_articles_path("verre") %>
+    <%= link_to '• Carton', category_articles_path('carton') %>
+    <%= link_to '• Papier de soie', category_articles_path('papier_de_soie') %>
+    <%= link_to '• Papier mâché', category_articles_path('papier_mache') %>
+    <%= link_to '• Fils', category_articles_path('fils') %>
   </div>
 
   <%# — Galería principal — %>

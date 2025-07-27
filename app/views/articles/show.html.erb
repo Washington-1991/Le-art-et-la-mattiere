@@ -12,7 +12,7 @@
 
   <%# Sección de navegación de categorías %>
   <div class="main-card-buttons">
-    <%= link_to "Verre", articles_path("verre") %>
+    <%= link_to "Verre", category_articles_path("verre") %>
     <%= link_to '• Carton', category_articles_path('carton') %>
     <%= link_to '• Papier de soie', category_articles_path('papier_de_soie') %>
     <%= link_to '• Papier mâché', category_articles_path('papier_mache') %>
@@ -46,14 +46,15 @@
 
           <div class="articles-show-actions">
             <% if current_user&.admin? %>
-                <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %>
-                <%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
+              <%= link_to 'Éditer', edit_article_path(@article), class: 'btn btn-warning' %>
+              <%= button_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cet article ?' }, class: 'btn btn-danger' %>
             <% end %>
-            <%= form_with url: cart_items_path, method: :post do |f| %>
+            <%= form_with url: cart_items_path, method: :post, class: 'add-to-cart-form' do |f| %>
               <%= hidden_field_tag :article_id, @article.id %>
-              <%= f.submit 'Ajouter au panier', class: 'button-ajouter-au-panier' %>
+              <%= f.submit 'Ajouter au panier',
+                    class: 'button-ajouter-au-panier',
+                    id: "add-to-cart-button-#{@article.id}" %>
             <% end %>
-
           </div>
 
       </div>

@@ -83,25 +83,61 @@
             padding: 8px 16px;
           }
 
-          .button-ajouter-au-panier {
-            background-color: #e8997c;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 16px;
-            padding: 8px 16px;
-            font-family: "Dancing Script", serif;
-            border-radius: 4px;
+          // ESTILOS PARA EL BOTÓN DE AÑADIR AL CARRITO
+          .add-to-cart-form {
+            .button-ajouter-au-panier {
+              background-color: #e8997c;
+              color: white;
+              border: none;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              font-size: 16px;
+              padding: 8px 16px;
+              font-family: "Dancing Script", serif;
+              border-radius: 4px;
+              position: relative;
+              overflow: hidden;
 
-            &:hover {
-              background-color: #d88a6b;
+              &:hover {
+                background-color: #d88a6b;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+              }
+
+              &:active {
+                transform: translateY(0);
+              }
+
+              // ESTILO CUANDO ESTÁ EN ESTADO "AJOUTÉ"
+              &.ajoute {
+                background-color: #4CAF50 !important;
+                cursor: default;
+                animation: pulse 0.5s;
+
+                &:hover {
+                  background-color: #4CAF50 !important;
+                  transform: none;
+                  box-shadow: none;
+                }
+
+                &::after {
+                  content: "✓";
+                  margin-left: 8px;
+                }
+              }
             }
           }
         }
       }
     }
   }
+}
+
+// Animación para el efecto de confirmación
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .supprimer-btn {
@@ -195,6 +231,19 @@
       .btn {
         font-size: 14px;
         padding: 6px 12px;
+      }
+
+      .articles-show-actions {
+        flex-direction: column;
+
+        .add-to-cart-form {
+          width: 100%;
+
+          .button-ajouter-au-panier {
+            width: 100%;
+            padding: 10px;
+          }
+        }
       }
     }
   }

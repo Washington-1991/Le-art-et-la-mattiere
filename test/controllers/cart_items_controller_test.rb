@@ -39,6 +39,15 @@ class CartItemsController < ApplicationController
     end
   end
 
+  # Acción para vaciar completamente el carrito
+  def clear
+    @cart.cart_items.destroy_all
+    respond_to do |format|
+      format.html { redirect_to cart_path, notice: 'Le panier a été vidé avec succès.' }
+      format.turbo_stream
+    end
+  end
+
   private
 
   def set_cart

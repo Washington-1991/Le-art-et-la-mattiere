@@ -17,6 +17,20 @@ Rails.application.routes.draw do
     resources :articles, only: [:index, :edit, :update, :destroy]
   end
 
+  # Alias routes para los tests:
+  # carts_show_url -> cart#show
+  get '/cart', to: 'carts#show', as: :carts_show
+
+  # articles_index_url -> articles#index
+  get '/articles', to: 'articles#index', as: :articles_index
+
+  # admin_users_index_url -> admin/users#index
+  get '/admin/users', to: 'admin/users#index', as: :admin_users_index
+  # admin_users_new_url -> admin/users#new
+  get '/admin/users/new', to: 'admin/users#new', as: :admin_users_new
+  # admin_users_edit_url -> admin/users#edit
+  get '/admin/users/:id/edit', to: 'admin/users#edit', as: :admin_users_edit
+
   get "/admin", to: "admin#index"
   get "admin_dashboard", to: "pages#admin_dashboard"
 
@@ -24,7 +38,7 @@ Rails.application.routes.draw do
     get :checkout, on: :member
   end
 
-  # Rutas principales primero
+  # Rutas principales de CartItems
   resources :cart_items, only: [:create, :update, :destroy]
 
   # Ruta clear separada para evitar conflictos

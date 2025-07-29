@@ -10,6 +10,12 @@ class User < ApplicationRecord
     admin:    "admin"
   }
 
+  # Validations
+  validates :role, presence: true, inclusion: { in: roles.keys }
+
+  # Callbacks
+  after_initialize :set_default_role, if: :new_record?
+
   # Associations
   has_many :carts, dependent: :destroy
   has_one  :current_cart, -> { order(created_at: :desc) }, class_name: 'Cart'
@@ -22,5 +28,12 @@ class User < ApplicationRecord
   # Returns the active cart or creates a new one
   def active_cart
     carts.order(created_at: :desc).first || carts.create
+  end
+
+  private
+
+  # Ensure new users default to customer
+  def set_default_role
+    self.role ||= "customer"
   end
 end

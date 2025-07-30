@@ -1,46 +1,32 @@
+# app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
-  # Devise: ensure user is authenticated for most actions
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # Set default redirect path after login based on role
+  helper_method :current_cart
+
   def after_sign_in_path_for(resource)
     resource.admin? ? admin_dashboard_path : root_path
   end
 
-  # Expose current_cart helper to views
-  helper_method :current_cart
-
   private
 
-  # Return or initialize the current user's cart (logged in or guest)
+  # Evita que el atributo :admin se pueda modificar vía formularios de Devise
+  def configure_permitted_parameters
+    # Solo permitimos parámetros seguros para sign_up y account_update
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email password password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name email password password_confirmation current_password])
+  end
+
   def current_cart
-    if user_signed_in?
-      current_user.cart || current_user.create_cart
-    else
-      guest_cart
-    end
-  end
-
-  # Create a guest cart and store in session
-  def guest_cart
     if session[:cart_id]
-      Cart.find_by(id: session[:cart_id]) || build_guest_cart
+      cart = Cart.find_by(id: session[:cart_id])
+      session[:cart_id] = nil unless cart
+      cart
     else
-      build_guest_cart
-    end
-  end
-
-  # Helper to build and persist a guest cart
-  def build_guest_cart
-    cart = Cart.create
-    session[:cart_id] = cart.id
-    cart
-  end
-
-  # Authorization filter: only allow admins
-  def require_admin
-    unless current_user&.admin?
-      redirect_to root_path, alert: "Acceso denegado. Solo administradores."
+      cart = Cart.create(user: current_user)
+      session[:cart_id] = cart.id
+      cart
     end
   end
 end

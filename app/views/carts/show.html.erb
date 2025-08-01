@@ -1,3 +1,4 @@
+<%# app/views/carts/show.html.erb %>
 <%# Barra de navegacion general %>
 <%= render "shared/navbar" %>
 
@@ -27,22 +28,7 @@
             <tr id="<%= dom_id(item) %>">
               <td class="fw-semibold"><%= item.article.name %></td>
               <td><%= number_to_currency(item.article.price, unit: "€") %></td>
-              <td>
-                <%= form_with model: item, url: cart_item_path(item), method: :patch, data: { turbo_frame: "_top" } do |f| %>
-                  <%= f.number_field :quantity,
-                        min: 1,
-                        max: item.article.stock + item.quantity,
-                        class: "form-control d-inline-block",
-                        style: "width: 60px",
-                        value: item.quantity %>
-                  <%= f.submit "Mettre à jour", class: "btn btn-sm btn-outline-primary ms-2" %>
-                <% end %>
-                <% if item.errors[:quantity].any? %>
-                  <div class="text-danger small mt-1">
-                    <%= item.errors[:quantity].join(", ") %>
-                  </div>
-                <% end %>
-              </td>
+              <td>1</td>
               <td><%= number_to_currency(item.total_price, unit: "€") %></td>
               <td>
                 <%= button_to "Supprimer", cart_item_path(item),

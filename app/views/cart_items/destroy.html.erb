@@ -1,2 +1,8 @@
-<h1>CartItems#destroy</h1>
-<p>Find me in app/views/cart_items/destroy.html.erb</p>
+<main class="cart-destroy-main">
+  <div class="cart-destroy-card">
+    <img src="https://res.cloudinary.com/dcfmvazgl/image/upload/v1739360012/Art%20et%20Matiere/WhatsApp_Image_2025-02-09_at_15.24.31_1_jo0hcu.jpg" alt="Suppression réussie" class="cart-destroy-image" />
+    <h2 class="cart-destroy-title">Article supprimé du panier</h2>
+    <p class="cart-destroy-message">L'article a été retiré avec succès.</p>
+    <%= link_to 'Retour au panier', cart_path, class: 'cart-destroy-btn' %>
+  </div>
+</main>

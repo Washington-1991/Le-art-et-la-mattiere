@@ -16,6 +16,8 @@ class CartItemsController < ApplicationController
         format.html { redirect_to article_path(article), alert: error_message }
         format.turbo_stream { flash.now[:alert] = error_message }
       end
+      # Fallback para otros formatos (evita 204 No Content)
+      format.any { head :ok }
     end
   end
 
@@ -23,11 +25,12 @@ class CartItemsController < ApplicationController
     respond_to do |format|
       if @cart_item.update(cart_item_params)
         format.html { redirect_to cart_path, notice: "Quantité mise à jour avec succès." }
-        format.turbo_stream
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@cart_item) }
       else
         format.html { redirect_to cart_path, alert: @cart_item.errors.full_messages.to_sentence }
         format.turbo_stream { flash.now[:alert] = @cart_item.errors.full_messages.to_sentence }
       end
+      format.any { head :ok }
     end
   end
 
@@ -35,7 +38,8 @@ class CartItemsController < ApplicationController
     @cart_item.destroy
     respond_to do |format|
       format.html { redirect_to cart_path, notice: 'Article supprimé du panier' }
-      format.turbo_stream
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@cart_item) }
+      format.any { head :ok }
     end
   end
 

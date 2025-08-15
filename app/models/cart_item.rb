@@ -42,7 +42,7 @@ class CartItem < ApplicationRecord
   end
 
   def update_cart_totals
-    cart.calculate_total if cart.persisted?
+    cart.calculate_total if cart && cart.persisted?
   end
 
   def restore_article_stock

@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   before_action :set_current_cart, only: [:show, :checkout]
 
   def show
-    # @current_cart ya está cargado
+    @cart = @current_cart # Asegura que @cart esté disponible en la vista
     respond_to do |format|
       format.html
       format.turbo_stream
